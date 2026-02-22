@@ -362,32 +362,38 @@
       </section>
     </main>
   </div>
-
   <script>
-    (function () {
-      const searchInput = document.getElementById('tool-search');
-      const cards = Array.from(document.querySelectorAll('.tool-card'));
-      const searchResult = document.getElementById('search-result');
-
-      function updateResults() {
-        const query = searchInput.value.trim().toLowerCase();
-        let visibleCount = 0;
-
-        cards.forEach((card) => {
-          const text = card.getAttribute('data-search') || '';
-          const matches = query === '' || text.includes(query);
-          card.hidden = !matches;
-          if (matches) visibleCount += 1;
-        });
-
-        searchResult.textContent = query
-          ? `Showing ${visibleCount} result${visibleCount === 1 ? '' : 's'} for "${query}"`
-          : `Showing ${visibleCount} tools`;
-      }
-
-      searchInput.addEventListener('input', updateResults);
-      updateResults();
-    })();
+    const toolsList = document.getElementById("toolsList");
+    const searchBox = document.getElementById("searchBox");
+    
+    let toolsData = [];
+    
+    fetch("tools.json")
+      .then(res => res.json())
+      .then(data => {
+        toolsData = data;
+        renderTools(data);
+      });
+    
+    function renderTools(list) {
+      toolsList.innerHTML = "";
+      list.forEach(tool => {
+        const a = document.createElement("a");
+        a.className = "card";
+        a.href = tool.url;
+        a.innerHTML = `<h3>${tool.name}</h3><p>${tool.desc}</p>`;
+        toolsList.appendChild(a);
+      });
+    }
+    
+    searchBox.addEventListener("input", () => {
+      const q = searchBox.value.toLowerCase();
+      const filtered = toolsData.filter(tool =>
+        tool.name.toLowerCase().includes(q) ||
+        tool.desc.toLowerCase().includes(q)
+      );
+      renderTools(filtered);
+    });
   </script>
 </body>
 </html>
