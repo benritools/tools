@@ -1,18 +1,25 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>文字数カウンター</title>
+  <title>Useful Tools Collection</title>
   <style>
     :root {
       color-scheme: light;
-      --bg: #f5f7fb;
-      --card: #ffffff;
-      --text: #1f2937;
-      --muted: #6b7280;
-      --accent: #4f46e5;
-      --border: #dbe3ee;
+      --bg: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --surface: #ffffff;
+      --border: #e5e7eb;
+      --blue: #5b8cff;
+      --mint: #b4f0de;
+      --lavender: #ddd6fe;
+      --peach: #ffe5d4;
+      --shadow-soft: 0 10px 24px rgba(15, 23, 42, 0.08);
+      --shadow-card: 0 8px 20px rgba(15, 23, 42, 0.06);
+      --radius-lg: 20px;
+      --radius-md: 14px;
     }
 
     * {
@@ -21,131 +28,303 @@
 
     body {
       margin: 0;
-      min-height: 100vh;
-      font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #f8fbff, var(--bg));
+      font-family: "Inter", "Segoe UI", Roboto, sans-serif;
+      background: radial-gradient(circle at top right, #f4f8ff 0%, var(--bg) 38%);
       color: var(--text);
-      display: grid;
-      place-items: center;
-      padding: 20px;
+      line-height: 1.5;
     }
 
-    .counter {
-      width: min(680px, 100%);
-      background: var(--card);
+    .page {
+      width: min(1120px, 92vw);
+      margin: 0 auto;
+      padding-bottom: 56px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 0;
+      gap: 16px;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .logo-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--blue), #90b4ff);
+      box-shadow: 0 8px 20px rgba(91, 140, 255, 0.28);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: clamp(12px, 3vw, 26px);
+      margin: 0;
+      padding: 0;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #1e293b;
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    .hero {
+      margin-top: 18px;
       border: 1px solid var(--border);
-      border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(31, 41, 55, 0.08);
-      padding: clamp(16px, 3vw, 28px);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+      background: linear-gradient(145deg, #ffffff, #fbfdff);
+      padding: clamp(24px, 5vw, 56px);
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 28px;
+      text-align: center;
     }
 
     h1 {
-      margin: 0 0 12px;
-      font-size: clamp(1.25rem, 2.4vw, 1.8rem);
-      font-weight: 700;
-      letter-spacing: 0.02em;
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3.3rem);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
     }
 
-    p {
-      margin: 0 0 16px;
+    .hero p {
+      margin: 12px auto 0;
+      max-width: 640px;
       color: var(--muted);
-      font-size: 0.95rem;
+      font-size: clamp(1rem, 1.6vw, 1.12rem);
     }
 
-    textarea {
-      width: 100%;
-      min-height: 210px;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 12px 14px;
-      font-size: 1rem;
-      line-height: 1.7;
-      resize: vertical;
-      outline: none;
-      transition: border-color 0.2s, box-shadow 0.2s;
+    .search-wrap {
+      width: min(680px, 100%);
+      margin: 0 auto;
     }
 
-    textarea:focus {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.12);
-    }
-
-    .bottom {
-      margin-top: 14px;
+    .search {
       display: flex;
-      flex-wrap: wrap;
-      gap: 10px 16px;
       align-items: center;
-      justify-content: space-between;
+      gap: 10px;
+      border: 1px solid var(--border);
+      background: #fff;
+      border-radius: 999px;
+      padding: 12px 18px;
+      box-shadow: 0 10px 22px rgba(37, 99, 235, 0.09);
     }
 
-    label {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      color: var(--text);
-      font-size: 0.95rem;
+    .search span {
+      font-size: 1rem;
+      color: #64748b;
+    }
+
+    .search input {
+      border: none;
+      outline: none;
+      width: 100%;
+      font-size: 1rem;
+      color: #0f172a;
+      background: transparent;
+    }
+
+    .cta {
+      margin-top: 18px;
+      border: none;
+      background: linear-gradient(135deg, var(--blue), #6a7bff);
+      color: #fff;
+      font-weight: 600;
+      font-size: 1rem;
+      border-radius: 999px;
+      padding: 12px 28px;
       cursor: pointer;
+      box-shadow: 0 10px 22px rgba(74, 119, 255, 0.35);
     }
 
-    input[type="checkbox"] {
-      width: 1rem;
-      height: 1rem;
-      accent-color: var(--accent);
+    .illustration {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(90px, 1fr));
+      gap: 14px;
+      width: min(700px, 100%);
+      margin: 8px auto 0;
     }
 
-    .count {
-      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
-      font-weight: 700;
-      color: var(--accent);
-      letter-spacing: 0.01em;
+    .tool-mini {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: #fff;
+      min-height: 88px;
+      display: grid;
+      place-content: center;
+      gap: 4px;
+      padding: 10px;
+      box-shadow: var(--shadow-card);
+      font-size: 0.9rem;
+      font-weight: 600;
     }
 
-    @media (max-width: 480px) {
-      .bottom {
+    .tool-mini small {
+      color: var(--muted);
+      font-size: 0.74rem;
+      font-weight: 500;
+    }
+
+    .floating-1 { background: linear-gradient(160deg, #fff, #f4f8ff); }
+    .floating-2 { background: linear-gradient(160deg, #fff, #f3fff9); }
+    .floating-3 { background: linear-gradient(160deg, #fff, #fff5f2); }
+
+    .categories {
+      margin-top: 34px;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .category-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 18px;
+      background: var(--surface);
+      box-shadow: var(--shadow-card);
+    }
+
+    .icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      display: inline-grid;
+      place-items: center;
+      font-size: 1.1rem;
+      margin-bottom: 12px;
+    }
+
+    .icon-text { background: var(--lavender); }
+    .icon-image { background: var(--mint); }
+    .icon-dev { background: #dbeafe; }
+    .icon-convert { background: var(--peach); }
+
+    .category-card h3 {
+      margin: 0;
+      font-size: 1.04rem;
+    }
+
+    .category-card p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 900px) {
+      .categories {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      header {
         flex-direction: column;
         align-items: flex-start;
       }
 
-      textarea {
-        min-height: 180px;
+      nav ul {
+        justify-content: flex-start;
+      }
+
+      .hero {
+        text-align: left;
+      }
+
+      .hero p,
+      .search-wrap,
+      .illustration {
+        margin-left: 0;
+      }
+
+      .categories {
+        grid-template-columns: 1fr;
+      }
+
+      .illustration {
+        grid-template-columns: repeat(2, minmax(120px, 1fr));
       }
     }
   </style>
 </head>
 <body>
-  <main class="counter">
-    <h1>文字数カウンター</h1>
-    <p>テキストを入力すると、リアルタイムで文字数を表示します。</p>
+  <div class="page">
+    <header>
+      <a href="#" class="logo"><span class="logo-mark"></span>ToolNest</a>
+      <nav aria-label="Primary navigation">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Tools</a></li>
+          <li><a href="#">Categories</a></li>
+          <li><a href="#">Articles</a></li>
+          <li><a href="#">About</a></li>
+        </ul>
+      </nav>
+    </header>
 
-    <textarea id="textInput" placeholder="ここにテキストを入力してください"></textarea>
+    <main>
+      <section class="hero">
+        <div>
+          <h1>Useful Tools Collection</h1>
+          <p>Discover free, practical web tools designed to make your daily work faster, cleaner, and more productive.</p>
+        </div>
 
-    <div class="bottom">
-      <label>
-        <input type="checkbox" id="includeSpaces" checked />
-        空白を含める
-      </label>
-      <div class="count"><span id="charCount">0</span> 文字</div>
-    </div>
-  </main>
+        <div class="search-wrap">
+          <label class="search" for="toolSearch">
+            <span aria-hidden="true">🔍</span>
+            <input id="toolSearch" type="search" placeholder="Search tools by keyword" />
+          </label>
+          <button class="cta" type="button">Browse Tools</button>
+        </div>
 
-  <script>
-    const textInput = document.getElementById('textInput');
-    const includeSpaces = document.getElementById('includeSpaces');
-    const charCount = document.getElementById('charCount');
+        <div class="illustration" aria-label="Tool dashboard illustration">
+          <div class="tool-mini floating-1">Word Counter<small>Text Tool</small></div>
+          <div class="tool-mini floating-2">Image Resize<small>Image Tool</small></div>
+          <div class="tool-mini floating-3">JSON Formatter<small>Dev Tool</small></div>
+          <div class="tool-mini floating-2">Case Convert<small>Text Tool</small></div>
+          <div class="tool-mini floating-3">Unit Convert<small>Converter</small></div>
+          <div class="tool-mini floating-1">Color Picker<small>Design Tool</small></div>
+        </div>
+      </section>
 
-    const whitespaceRegex = /[ \u3000\n\t]/g;
-
-    function updateCount() {
-      const text = textInput.value;
-      const count = includeSpaces.checked ? text.length : text.replace(whitespaceRegex, '').length;
-      charCount.textContent = String(count);
-    }
-
-    textInput.addEventListener('input', updateCount);
-    includeSpaces.addEventListener('change', updateCount);
-
-    updateCount();
-  </script>
+      <section class="categories" aria-label="Tool categories">
+        <article class="category-card">
+          <div class="icon icon-text">📝</div>
+          <h3>Text Tools</h3>
+          <p>Edit, clean, and transform text quickly with productivity-focused utilities.</p>
+        </article>
+        <article class="category-card">
+          <div class="icon icon-image">🖼️</div>
+          <h3>Image Tools</h3>
+          <p>Compress, resize, and optimize visuals with simple one-click workflows.</p>
+        </article>
+        <article class="category-card">
+          <div class="icon icon-dev">💻</div>
+          <h3>Developer Tools</h3>
+          <p>Format code, validate data, and streamline routine development tasks.</p>
+        </article>
+        <article class="category-card">
+          <div class="icon icon-convert">🔄</div>
+          <h3>Converter Tools</h3>
+          <p>Convert units, files, and formats effortlessly for both work and study.</p>
+        </article>
+      </section>
+    </main>
+  </div>
 </body>
 </html>

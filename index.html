@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Useful Tools Collection</title>
+  <meta name="description" content="Free useful web tools for daily productivity. Search and browse text, image, developer, and converter tools." />
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #ffffff;
+      --surface: #ffffff;
+      --text: #0f172a;
+      --muted: #4b5563;
+      --border: #e5e7eb;
+      --accent: #4f46e5;
+      --accent-soft: #eef2ff;
+      --mint: #eafbf3;
+      --sky: #ecf4ff;
+      --peach: #fff1e9;
+      --lav: #f3efff;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --shadow-lg: 0 14px 36px rgba(15, 23, 42, 0.09);
+      --shadow-sm: 0 8px 22px rgba(15, 23, 42, 0.06);
+      --max: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+      color: var(--text);
+      background: radial-gradient(circle at top right, #f5f8ff, var(--bg) 40%);
+      line-height: 1.5;
+    }
+
+    .container {
+      width: min(var(--max), 92vw);
+      margin: 0 auto;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.25rem 0;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-weight: 700;
+      text-decoration: none;
+      color: var(--text);
+      letter-spacing: 0.01em;
+    }
+
+    .logo-mark {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 0.65rem;
+      background: linear-gradient(145deg, #6172ff, #81b3ff);
+      box-shadow: 0 10px 24px rgba(79, 70, 229, 0.3);
+    }
+
+    nav ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 1.5rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #1e293b;
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    .hero {
+      margin-top: 0.5rem;
+      background: linear-gradient(145deg, #ffffff, #fbfcff);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      padding: clamp(1.5rem, 3vw, 3rem);
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2rem, 4.5vw, 3.5rem);
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+    }
+
+    .hero p {
+      margin: 0.9rem auto 0;
+      max-width: 44rem;
+      color: var(--muted);
+      font-size: clamp(1rem, 2vw, 1.1rem);
+    }
+
+    .search-area {
+      width: min(680px, 100%);
+      margin: 1.4rem auto 0;
+    }
+
+    .search {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.8rem 1rem;
+      background: #fff;
+      box-shadow: 0 10px 26px rgba(59, 130, 246, 0.12);
+    }
+
+    .search input {
+      border: 0;
+      outline: none;
+      font-size: 1rem;
+      width: 100%;
+      color: var(--text);
+    }
+
+    .cta {
+      margin-top: 1rem;
+      border: 0;
+      border-radius: 999px;
+      background: linear-gradient(145deg, #5d67ff, #4f46e5);
+      color: white;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 0.78rem 1.6rem;
+      cursor: pointer;
+      box-shadow: 0 10px 24px rgba(79, 70, 229, 0.35);
+    }
+
+    .illustration {
+      margin: 1.4rem auto 0;
+      width: min(760px, 100%);
+      display: grid;
+      grid-template-columns: repeat(3, minmax(120px, 1fr));
+      gap: 0.8rem;
+    }
+
+    .mini-card {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 0.7rem;
+      min-height: 86px;
+      display: grid;
+      place-content: center;
+      gap: 0.2rem;
+      box-shadow: var(--shadow-sm);
+      font-size: 0.92rem;
+      font-weight: 600;
+      background: #fff;
+    }
+
+    .mini-card small {
+      color: var(--muted);
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+
+    .mini-a { background: linear-gradient(160deg, #fff, var(--sky)); }
+    .mini-b { background: linear-gradient(160deg, #fff, var(--mint)); }
+    .mini-c { background: linear-gradient(160deg, #fff, var(--peach)); }
+
+    .section-head {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: clamp(1.35rem, 2.7vw, 1.8rem);
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .grid {
+      margin-top: 0.9rem;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.9rem;
+    }
+
+    .tool-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      background: var(--surface);
+      box-shadow: var(--shadow-sm);
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+    }
+
+    .tool-card .icon {
+      width: 2.4rem;
+      height: 2.4rem;
+      border-radius: 0.7rem;
+      display: inline-grid;
+      place-items: center;
+      font-size: 1.05rem;
+    }
+
+    .icon-text { background: var(--lav); }
+    .icon-image { background: var(--mint); }
+    .icon-dev { background: var(--sky); }
+    .icon-conv { background: var(--peach); }
+
+    .tool-card h3 {
+      margin: 0;
+      font-size: 1rem;
+      line-height: 1.25;
+    }
+
+    .tool-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+      flex: 1;
+    }
+
+    .tool-card a {
+      margin-top: 0.2rem;
+      text-decoration: none;
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 0.9rem;
+      width: fit-content;
+    }
+
+    .tool-card[hidden] { display: none; }
+
+    .search-result {
+      margin-top: 0.8rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 960px) {
+      .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 700px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav ul { gap: 0.6rem 1rem; }
+
+      .hero { text-align: left; }
+
+      .hero p,
+      .search-area,
+      .illustration { margin-left: 0; }
+
+      .illustration { grid-template-columns: repeat(2, minmax(110px, 1fr)); }
+    }
+
+    @media (max-width: 520px) {
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <a class="logo" href="#" aria-label="ToolNest homepage">
+        <span class="logo-mark" aria-hidden="true"></span>
+        ToolNest
+      </a>
+      <nav aria-label="Primary navigation">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Tools</a></li>
+          <li><a href="#">Categories</a></li>
+          <li><a href="#">Articles</a></li>
+          <li><a href="#">About</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <h1 id="hero-title">Useful Tools Collection</h1>
+        <p>Find free useful tools for daily productivity—from text and image utilities to quick developer helpers and converters.</p>
+
+        <div class="search-area">
+          <label class="search" for="tool-search">
+            <span aria-hidden="true">🔍</span>
+            <input id="tool-search" type="search" placeholder="Search tools by keyword" autocomplete="off" />
+          </label>
+          <button class="cta" type="button">Browse Tools</button>
+        </div>
+
+        <div class="illustration" aria-label="Preview of tools dashboard cards">
+          <div class="mini-card mini-a">Word Counter<small>Text Tool</small></div>
+          <div class="mini-card mini-b">Image Resize<small>Image Tool</small></div>
+          <div class="mini-card mini-c">JSON Formatter<small>Dev Tool</small></div>
+          <div class="mini-card mini-b">Case Convert<small>Text Tool</small></div>
+          <div class="mini-card mini-c">Unit Converter<small>Converter</small></div>
+          <div class="mini-card mini-a">Color Picker<small>Design Tool</small></div>
+        </div>
+      </section>
+
+      <section aria-labelledby="categories-title">
+        <div class="section-head">
+          <h2 id="categories-title">Browse by category</h2>
+          <p id="search-result" class="search-result">Showing 4 tools</p>
+        </div>
+
+        <div id="tool-grid" class="grid">
+          <article class="tool-card" data-search="text tools word counter case converter text editing">
+            <span class="icon icon-text" aria-hidden="true">📝</span>
+            <h3>Text Tools</h3>
+            <p>Edit, clean, and transform text quickly for everyday writing and content tasks.</p>
+            <a href="apps/char-counter/">Open Char Counter</a>
+          </article>
+
+          <article class="tool-card" data-search="image tools resize compress optimize images">
+            <span class="icon icon-image" aria-hidden="true">🖼️</span>
+            <h3>Image Tools</h3>
+            <p>Resize, compress, and optimize images with simple workflows and clear outputs.</p>
+            <a href="#">Explore Image Tools</a>
+          </article>
+
+          <article class="tool-card" data-search="developer tools json formatter url encode decode code">
+            <span class="icon icon-dev" aria-hidden="true">💻</span>
+            <h3>Developer Tools</h3>
+            <p>Format JSON, transform data, and speed up routine development tasks.</p>
+            <a href="#">Explore Developer Tools</a>
+          </article>
+
+          <article class="tool-card" data-search="converter tools unit converter file format">
+            <span class="icon icon-conv" aria-hidden="true">🔄</span>
+            <h3>Converter Tools</h3>
+            <p>Convert files, units, and formats for work, study, and daily utility.</p>
+            <a href="#">Explore Converter Tools</a>
+          </article>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    (function () {
+      const searchInput = document.getElementById('tool-search');
+      const cards = Array.from(document.querySelectorAll('.tool-card'));
+      const searchResult = document.getElementById('search-result');
+
+      function updateResults() {
+        const query = searchInput.value.trim().toLowerCase();
+        let visibleCount = 0;
+
+        cards.forEach((card) => {
+          const text = card.getAttribute('data-search') || '';
+          const matches = query === '' || text.includes(query);
+          card.hidden = !matches;
+          if (matches) visibleCount += 1;
+        });
+
+        searchResult.textContent = query
+          ? `Showing ${visibleCount} result${visibleCount === 1 ? '' : 's'} for "${query}"`
+          : `Showing ${visibleCount} tools`;
+      }
+
+      searchInput.addEventListener('input', updateResults);
+      updateResults();
+    })();
+  </script>
+</body>
+</html>
