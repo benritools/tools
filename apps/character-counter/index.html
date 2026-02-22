@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>文字数カウンター</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f5f7fb;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --accent: #4f46e5;
+      --border: #dbe3ee;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #f8fbff, var(--bg));
+      color: var(--text);
+      display: grid;
+      place-items: center;
+      padding: 20px;
+    }
+
+    .counter {
+      width: min(680px, 100%);
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(31, 41, 55, 0.08);
+      padding: clamp(16px, 3vw, 28px);
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(1.25rem, 2.4vw, 1.8rem);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    p {
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 210px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px 14px;
+      font-size: 1rem;
+      line-height: 1.7;
+      resize: vertical;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.12);
+    }
+
+    .bottom {
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 16px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text);
+      font-size: 0.95rem;
+      cursor: pointer;
+    }
+
+    input[type="checkbox"] {
+      width: 1rem;
+      height: 1rem;
+      accent-color: var(--accent);
+    }
+
+    .count {
+      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.01em;
+    }
+
+    @media (max-width: 480px) {
+      .bottom {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      textarea {
+        min-height: 180px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="counter">
+    <h1>文字数カウンター</h1>
+    <p>テキストを入力すると、リアルタイムで文字数を表示します。</p>
+
+    <textarea id="textInput" placeholder="ここにテキストを入力してください"></textarea>
+
+    <div class="bottom">
+      <label>
+        <input type="checkbox" id="includeSpaces" checked />
+        空白を含める
+      </label>
+      <div class="count"><span id="charCount">0</span> 文字</div>
+    </div>
+  </main>
+
+  <script>
+    const textInput = document.getElementById('textInput');
+    const includeSpaces = document.getElementById('includeSpaces');
+    const charCount = document.getElementById('charCount');
+
+    const whitespaceRegex = /[ \u3000\n\t]/g;
+
+    function updateCount() {
+      const text = textInput.value;
+      const count = includeSpaces.checked ? text.length : text.replace(whitespaceRegex, '').length;
+      charCount.textContent = String(count);
+    }
+
+    textInput.addEventListener('input', updateCount);
+    includeSpaces.addEventListener('change', updateCount);
+
+    updateCount();
+  </script>
+</body>
+</html>
