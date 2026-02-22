@@ -4,5 +4,11 @@
     "desc": "空白ON/OFF対応の文字数カウントツール",
     "url": "apps/character-counter/",
     "category": "text"
+  },
+  {
+    "name": "カウントダウンタイマー",
+    "desc": "シンプルで使いやすいタイマー",
+    "url": "apps/timer/",
+    "category": "time"
   }
 ]
