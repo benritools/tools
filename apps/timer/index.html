@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>カウントダウンタイマー</title>
+  <meta name="description" content="GitHub Pagesで使えるシンプルなカウントダウンタイマー" />
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --panel: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --accent: #e2e8f0;
+      --danger: #dc2626;
+      --shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100dvh;
+      display: grid;
+      place-items: center;
+      font-family: "Inter", "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(1200px 420px at 10% -20%, rgba(37, 99, 235, 0.16), transparent 60%),
+        radial-gradient(1000px 360px at 90% 120%, rgba(2, 132, 199, 0.12), transparent 60%),
+        var(--bg);
+      padding: 20px;
+    }
+
+    .card {
+      width: min(100%, 460px);
+      background: var(--panel);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(148, 163, 184, 0.22);
+      padding: clamp(20px, 5vw, 30px);
+      display: grid;
+      gap: 22px;
+    }
+
+    h1 {
+      margin: 0;
+      text-align: center;
+      font-size: clamp(1.25rem, 4.2vw, 1.6rem);
+      letter-spacing: 0.02em;
+    }
+
+    .display {
+      text-align: center;
+      font-size: clamp(2.6rem, 15vw, 4rem);
+      font-variant-numeric: tabular-nums;
+      letter-spacing: 0.06em;
+      line-height: 1;
+      font-weight: 700;
+    }
+
+    .controls {
+      display: grid;
+      gap: 14px;
+    }
+
+    .inputs {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    label {
+      font-size: 0.9rem;
+      color: var(--muted);
+      display: grid;
+      gap: 6px;
+      font-weight: 600;
+    }
+
+    input[type="number"] {
+      width: 100%;
+      border: 1px solid var(--accent);
+      border-radius: 12px;
+      padding: 12px 14px;
+      font-size: 1rem;
+      color: var(--text);
+      background: #fff;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    input[type="number"]:focus-visible {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+    }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    button {
+      border: 0;
+      border-radius: 12px;
+      padding: 12px 10px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.05s ease, opacity 0.2s ease, background 0.2s ease;
+      min-height: 44px;
+    }
+
+    button:active { transform: translateY(1px); }
+
+    button:focus-visible {
+      outline: 3px solid rgba(37, 99, 235, 0.35);
+      outline-offset: 2px;
+    }
+
+    .start {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .start:hover { background: var(--primary-hover); }
+
+    .pause {
+      background: #0ea5e9;
+      color: #fff;
+    }
+
+    .pause:hover { background: #0284c7; }
+
+    .reset {
+      background: #e2e8f0;
+      color: #0f172a;
+    }
+
+    .reset:hover { background: #cbd5e1; }
+
+    .status {
+      min-height: 1.25rem;
+      text-align: center;
+      font-size: 0.95rem;
+      color: var(--danger);
+      font-weight: 700;
+    }
+
+    @media (max-width: 380px) {
+      .buttons { grid-template-columns: 1fr; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="card" aria-labelledby="timer-title">
+    <h1 id="timer-title">カウントダウンタイマー</h1>
+
+    <div id="display" class="display" role="timer" aria-live="polite" aria-atomic="true">00:00</div>
+
+    <section class="controls" aria-label="タイマー設定">
+      <div class="inputs">
+        <label for="minutes">Minutes
+          <input id="minutes" type="number" min="0" max="599" step="1" value="1" inputmode="numeric" autocomplete="off" />
+        </label>
+        <label for="seconds">Seconds
+          <input id="seconds" type="number" min="0" max="59" step="1" value="0" inputmode="numeric" autocomplete="off" />
+        </label>
+      </div>
+
+      <div class="buttons">
+        <button id="startBtn" class="start" type="button" aria-label="Start timer">Start</button>
+        <button id="pauseBtn" class="pause" type="button" aria-label="Pause timer">Pause</button>
+        <button id="resetBtn" class="reset" type="button" aria-label="Reset timer">Reset</button>
+      </div>
+    </section>
+
+    <p id="status" class="status" aria-live="assertive"></p>
+  </main>
+
+  <script>
+    (() => {
+      const minutesInput = document.getElementById('minutes');
+      const secondsInput = document.getElementById('seconds');
+      const display = document.getElementById('display');
+      const status = document.getElementById('status');
+      const startBtn = document.getElementById('startBtn');
+      const pauseBtn = document.getElementById('pauseBtn');
+      const resetBtn = document.getElementById('resetBtn');
+
+      let remainingMs = 0;
+      let initialMs = 0;
+      let endTime = 0;
+      let intervalId = null;
+      let audioCtx = null;
+
+      const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
+
+      function sanitizeInputs() {
+        const minutes = clamp(Number.parseInt(minutesInput.value || '0', 10) || 0, 0, 599);
+        const seconds = clamp(Number.parseInt(secondsInput.value || '0', 10) || 0, 0, 59);
+        minutesInput.value = String(minutes);
+        secondsInput.value = String(seconds);
+        return { minutes, seconds };
+      }
+
+      function toMilliseconds(minutes, seconds) {
+        return (minutes * 60 + seconds) * 1000;
+      }
+
+      function formatTime(ms) {
+        const totalSeconds = Math.ceil(ms / 1000);
+        const safeSeconds = Math.max(0, totalSeconds);
+        const mm = Math.floor(safeSeconds / 60).toString().padStart(2, '0');
+        const ss = (safeSeconds % 60).toString().padStart(2, '0');
+        return `${mm}:${ss}`;
+      }
+
+      function setDisplay(ms) {
+        display.textContent = formatTime(ms);
+      }
+
+      function setInputsDisabled(disabled) {
+        minutesInput.disabled = disabled;
+        secondsInput.disabled = disabled;
+      }
+
+      function stopInterval() {
+        if (intervalId !== null) {
+          clearInterval(intervalId);
+          intervalId = null;
+        }
+      }
+
+      function beep() {
+        try {
+          audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
+          const now = audioCtx.currentTime;
+          const oscillator = audioCtx.createOscillator();
+          const gainNode = audioCtx.createGain();
+
+          oscillator.type = 'sine';
+          oscillator.frequency.setValueAtTime(880, now);
+
+          gainNode.gain.setValueAtTime(0.0001, now);
+          gainNode.gain.exponentialRampToValueAtTime(0.18, now + 0.02);
+          gainNode.gain.exponentialRampToValueAtTime(0.0001, now + 0.25);
+
+          oscillator.connect(gainNode);
+          gainNode.connect(audioCtx.destination);
+
+          oscillator.start(now);
+          oscillator.stop(now + 0.26);
+        } catch {
+          // Audio unavailable in this environment; visual completion still works.
+        }
+      }
+
+      function handleComplete() {
+        stopInterval();
+        remainingMs = 0;
+        setDisplay(0);
+        status.textContent = '終了';
+        setInputsDisabled(false);
+        beep();
+      }
+
+      function tick() {
+        const msLeft = endTime - Date.now();
+        remainingMs = Math.max(0, msLeft);
+        setDisplay(remainingMs);
+
+        if (remainingMs <= 0) {
+          handleComplete();
+        }
+      }
+
+      function start() {
+        status.textContent = '';
+
+        if (intervalId !== null) {
+          return;
+        }
+
+        if (remainingMs <= 0) {
+          const { minutes, seconds } = sanitizeInputs();
+          initialMs = toMilliseconds(minutes, seconds);
+          remainingMs = initialMs;
+        }
+
+        if (remainingMs <= 0) {
+          setDisplay(0);
+          status.textContent = '時間を設定してください';
+          return;
+        }
+
+        endTime = Date.now() + remainingMs;
+        setInputsDisabled(true);
+        tick();
+        intervalId = window.setInterval(tick, 200);
+      }
+
+      function pause() {
+        if (intervalId === null) {
+          return;
+        }
+        stopInterval();
+        remainingMs = Math.max(0, endTime - Date.now());
+        setDisplay(remainingMs);
+      }
+
+      function reset() {
+        stopInterval();
+
+        const restoreMs = initialMs > 0 ? initialMs : toMilliseconds(...Object.values(sanitizeInputs()));
+        remainingMs = restoreMs;
+
+        const totalSeconds = Math.floor(restoreMs / 1000);
+        const mm = Math.floor(totalSeconds / 60);
+        const ss = totalSeconds % 60;
+
+        minutesInput.value = String(mm);
+        secondsInput.value = String(ss);
+
+        setDisplay(restoreMs);
+        status.textContent = '';
+        setInputsDisabled(false);
+      }
+
+      startBtn.addEventListener('click', start);
+      pauseBtn.addEventListener('click', pause);
+      resetBtn.addEventListener('click', reset);
+
+      minutesInput.addEventListener('change', () => {
+        if (intervalId !== null) return;
+        const { minutes, seconds } = sanitizeInputs();
+        initialMs = toMilliseconds(minutes, seconds);
+        remainingMs = initialMs;
+        setDisplay(remainingMs);
+      });
+
+      secondsInput.addEventListener('change', () => {
+        if (intervalId !== null) return;
+        const { minutes, seconds } = sanitizeInputs();
+        initialMs = toMilliseconds(minutes, seconds);
+        remainingMs = initialMs;
+        setDisplay(remainingMs);
+      });
+
+      const initial = sanitizeInputs();
+      initialMs = toMilliseconds(initial.minutes, initial.seconds);
+      remainingMs = initialMs;
+      setDisplay(remainingMs);
+    })();
+  </script>
+</body>
+</html>
