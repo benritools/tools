@@ -1,0 +1,8 @@
+[
+  {
+    "name": "文字数カウンター",
+    "desc": "空白ON/OFF対応の文字数カウントツール",
+    "url": "apps/character-counter/",
+    "category": "text"
+  }
+]
