@@ -1,144 +1,93 @@
 <!DOCTYPE html>
 <html lang="ja">
+  <link rel="stylesheet" href="./style.css">
 <head>
   <meta charset="UTF-8">
-  <title>便利ツール集</title>
+  <title>便利ツール集｜登録不要で今すぐ使えるWebツールサイト</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <style>
-    body{
-      margin:0;
-      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto;
-      background:#f7f8fb;
-      color:#222;
-    }
-
-    header{
-      padding:60px 20px 30px;
-      text-align:center;
-    }
-
-    h1{
-      font-size:42px;
-      margin:0 0 10px;
-    }
-
-    .sub{
-      color:#666;
-      margin-bottom:30px;
-    }
-
-    .search-area{
-      max-width:500px;
-      margin:0 auto;
-      display:flex;
-      gap:10px;
-    }
-
-    .search{
-      flex:1;
-      display:flex;
-      align-items:center;
-      background:#fff;
-      border-radius:10px;
-      padding:10px 14px;
-      box-shadow:0 4px 10px rgba(0,0,0,.05);
-    }
-
-    .search input{
-      border:none;
-      outline:none;
-      flex:1;
-      font-size:16px;
-      margin-left:8px;
-    }
-
-    .cta{
-      border:none;
-      background:#6366f1;
-      color:#fff;
-      border-radius:10px;
-      padding:12px 18px;
-      cursor:pointer;
-      font-weight:600;
-    }
-
-    main{
-      max-width:900px;
-      margin:40px auto;
-      padding:0 20px;
-    }
-
-    .tools{
-      display:grid;
-      grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
-      gap:20px;
-    }
-
-    .tool{
-      background:#fff;
-      border-radius:12px;
-      padding:18px;
-      box-shadow:0 6px 14px rgba(0,0,0,.06);
-      text-decoration:none;
-      color:inherit;
-      transition:.15s;
-    }
-
-    .tool:hover{
-      transform:translateY(-3px);
-      box-shadow:0 10px 20px rgba(0,0,0,.08);
-    }
-
-    .tool-title{
-      font-weight:700;
-      margin-bottom:6px;
-    }
-
-    .tool-desc{
-      font-size:14px;
-      color:#666;
-    }
-
-    footer{
-      text-align:center;
-      padding:40px 20px;
-      color:#888;
-      font-size:13px;
-    }
-  </style>
+  <meta name="description" content="文字数カウンターやカウントダウンタイマーなど、無料で使えるシンプルなWebツールを提供しています。スマホ・PCどちらからも登録なしで簡単に利用可能。">
 </head>
 
 <body>
 
 <header>
-  <h1>便利ツール集</h1>
-  <div class="sub">無料で使えるシンプル便利ツール</div>
+  <div class="brand">
+    <img src="logo.png" alt="Benri Tools ロゴ">
+    <h1>便利ツール集</h1>
+  </div>
+
+  <div class="sub">無料でサクッと使えるシンプルな便利ツール集です</div>
 
   <div class="search-area">
     <label class="search">
       🔍
-      <input id="tool-search" type="search" placeholder="ツールを検索">
+      <input id="tool-search" type="search" placeholder="キーワード">
     </label>
-    <button class="cta" onclick="scrollToTools()">ツール一覧</button>
+    <button class="cta" onclick="scrollToTools()">検索</button>
   </div>
 </header>
 
 <main>
+  <h3 class="sidebar-title">👑&nbsp;人気ツール</h3>
+  <div id="popular-tools" class="tools"></div>
+  <h3 class="sidebar-title">📌&nbsp;すべてのツール</h3>
   <div id="toolsList" class="tools"></div>
 </main>
 
+        <section class="column-section">
+          
+          <article class="column-article">
+              <h3 class="article-h3">
+                  便利ツールについて
+              </h3>
+              <div class="content-wrapper">
+                      <div class="article-text">
+                          <p>
+                          当サイトでは、日常生活や仕事、学習で役立つシンプルなWebツールを無料で提供しています。
+                          ソフトのインストールや会員登録は不要でセキュリティも安心です、お使いのブラウザからすぐに利用できます。
+                          <br>
+                          現在公開しているツールには以下のようなものがあります。</p>
+                          
+                          <ul><li>文字数カウンター<br>文章作成やSNS投稿、レポート作成時に文字数を簡単に確認できます。</li>
+                          <li>カウントダウンタイマー<br>勉強や作業、料理、運動などの時間管理に利用できます。</li>
+                          
+                          </ul>
+                          <p>今後も、日常で役立つ便利なツールを順次追加していく予定です。</p>
+                      </div>
+                  </div>
+        <br>
+              <h3 class="article-h3">
+                  このサイトの特徴
+              </h3>
+              <div class="content-wrapper">
+                      <div class="article-text">
+                          <p>
+                          当サイトのツールはすべてブラウザ上で動作します。入力されたデータはサーバーに保存されません、安心してご利用いただけます。
+                          シンプルで使いやすいツールサイトを目指して、継続的にツールの追加や改善を行っています。</p>
+                      </div>
+                  </div>
+          </article>
+        </section>
+    
 <footer>
-  © benritools
+  <div class="footer-links">
+    <a href="/index.html">トップページ</a>
+    <a href="/apps/common/about.html">当サイトについて</a>
+    <a href="/apps/common/privacy.html">プライバシーポリシー</a>
+    <a href="/apps/common/terms.html">利用規約</a>
+    <a href="/apps/common/contact.html">お問い合わせ</a>
+  </div>
+  © benritools 2026
 </footer>
 
 <script>
   let allTools = [];
 
   async function loadTools(){
-    const res = await fetch('./tools.json');
+    const res = await fetch('/tools.json');
     allTools = await res.json();
     renderTools(allTools);
+    renderPopularTools(allTools);
   }
 
   function renderTools(list){
@@ -152,7 +101,41 @@
       </a>
     `).join('');
   }
-
+  
+  /* ======================
+    人気ランキング
+  ====================== */
+  
+  function renderPopularTools(tools){
+  
+    const key = 'tool_click_counts';
+    const counts = JSON.parse(localStorage.getItem(key) || '{}');
+  
+    const ranked = [...tools]
+      .map(t => ({...t, count: counts[t.url] || 0}))
+      .sort((a,b)=> b.count - a.count)
+      .slice(0,5);
+  
+    const el = document.getElementById('popular-tools');
+    if(!el) return;
+  
+    ranked.forEach((tool,i)=>{
+  
+      const card = document.createElement('a');
+      card.href = tool.url;
+      card.className = 'popular-card';
+  
+      card.innerHTML = `
+        <div class="popular-rank">${i+1}</div>
+        <div>
+          <div class="popular-title">${tool.name}</div>
+          <div class="popular-desc">${tool.description}</div>
+        </div>
+      `;
+  
+      el.appendChild(card);
+    });
+  }
   const searchInput = document.getElementById('tool-search');
 
   if(searchInput){
@@ -171,6 +154,7 @@
   }
 
   loadTools();
+
 </script>
 
 </body>
