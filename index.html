@@ -30,8 +30,10 @@
 </header>
 
 <main>
-  <h3 class="sidebar-title">👑&nbsp;人気ツール</h3>
-  <div id="popular-tools" class="tools"></div>
+  <div id="popularSection">
+    <h3 class="sidebar-title">👑&nbsp;人気ツール</h3>
+    <div id="popular-tools" class="tools"></div>
+  </div>
   <h3 class="sidebar-title">📌&nbsp;すべてのツール</h3>
   <div id="toolsList" class="tools"></div>
 </main>
@@ -147,7 +149,13 @@
         t.name.toLowerCase().includes(q) ||
         t.description.toLowerCase().includes(q)
       );
+      /* 検索結果表示 */
       renderTools(filtered);
+      if(q.length > 0){
+        popularSection.style.display = "none";
+      }else{
+        popularSection.style.display = "block";
+      }
     });
   }
 
