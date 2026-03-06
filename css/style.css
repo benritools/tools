@@ -6,6 +6,7 @@
   --card: #ffffff;
   --text: #1f2937;
   --muted: #6b7280;
+  --muted2: #a1a2a2;
   --accent: #4f46e5;
   --border: #dbe3ee;
   --lightgray: #f9fafb;
@@ -146,13 +147,13 @@ textarea {
 }
 
 .footer-links a{
-  color:#666;
+  color: var(--muted);
   text-decoration:none;
   font-size:14px;
 }
 
 .footer-copy{
-  color:#999;
+  color: var(--muted2);
   font-size:12px;
 }
 /* ページ上部へ戻るボタンのエリア */
@@ -204,7 +205,7 @@ textarea {
 
 .site-desc{
   font-size:13px;
-  color:#666;
+  color:var(--muted);
 }
 
 .sidebar-block{
