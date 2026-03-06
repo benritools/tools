@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>便利ツール集 | プライバシーポリシー</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+<div id="header"></div>
+    <div class="layout">
+      
+    <!-- ページ本文 -->
+      <div class="main">
+    
+
+      <section class="tool-section">
+        <div class="column-article">
+        <h3 class="article-h3">プライバシーポリシー</h3>
+        <p>当サイトでは、個人情報の保護に関する法令を遵守するとともに、以下のとおりプライバシーポリシーを定めます。</p>
+        <h4 class="article-h4">個人情報の利用目的</h4>
+            <p>当サイトでは、お問い合わせの際にお名前やメールアドレス等の個人情報をご入力いただく場合がありますが、取得した個人情報はお問い合わせへの回答などの必要な目的以外では利用いたしません。</p>
+        <!--h4 class="article-h4">広告の配信について</h4>
+        <p>当サイトでは、第三者配信の広告サービス「Google アドセンス」を利用しています。広告配信事業者は、ユーザーの興味に応じた商品やサービスの広告を表示するため、クッキー（Cookie）を使用することがあります。クッキーを使用することで、当サイトはお客様のコンピュータを識別できるようになりますが、お客様個人を特定できるものではありません。</p>
+        <p>クッキーを無効にする設定およびGoogleアドセンスに関する詳細は「<a href="https://policies.google.com/technologies/ads?hl=ja" target="_blank" rel="noopener">広告 – ポリシーと規約 – Google</a>」をご覧ください。</p-->
+    
+        <h4 class="article-h4">アクセス解析ツールについて</h4>
+        <p>当サイトでは、Googleによるアクセス解析ツール「Googleアナリティクス」を利用しています。このGoogleアナリティクスはトラフィックデータの収集のためにクッキー（Cookie）を使用しています。このトラフィックデータは匿名で収集されており、個人を特定するものではありません。</p>
+    
+        <h4 class="article-h4">免責事項</h4>
+        <p>当サイトのコンテンツ・情報につきまして、可能な限り正確な情報を掲載するよう努めておりますが、誤情報が入り込んだり、情報が古くなっていることもございます。当サイトに掲載された内容によって生じた損害等の一切の責任を負いかねますのでご了承ください。</p>
+        <p>また、当サイトからリンクやバナーなどによって他のサイトに移動された場合、移動先サイトで提供される情報、サービス等について一切の責任を負いません。</p>
+    
+        <h4 class="article-h4">著作権について</h4>
+        <p>当サイトで掲載している文章や画像などにつきましては、無断転載することを禁止します。当サイトは著作権や肖像権の侵害を目的としたものではありません。著作権や肖像権に関して問題がございましたら、お問い合わせフォームよりご連絡ください。迅速に対応いたします。</p>
+    </div>
+      </section>
+        
+      </div>
+
+      <!-- サイドメニュー -->
+      <aside class="sidebar">
+      
+        <div class="sidebar-block">
+          <h3 class="sidebar-title">人気ツール</h3>
+          <div id="popular-tools"></div>
+        </div>
+      
+        <div class="sidebar-block">
+          <h3 class="sidebar-title">他のツール</h3>
+          <div id="sidebar-tools"></div>
+        </div>
+      
+      </aside>
+
+</div>
+
+
+
+  <!-- フッター -->
+<div id="footer"></div>
+
+<script src="../common/layout.js"></script>
+<script src="../common/sidebar.js"></script>
+
+<script>
+    /* 要素の取得 */
+    const textInput = document.getElementById('textInput');
+    const includeSpaces = document.getElementById('includeSpaces');
+    const includeLineBreaks = document.getElementById('includeLineBreaks');
+    const includePunctuation = document.getElementById('includePunctuation');
+    
+    const charCount = document.getElementById('charCount');
+    const paperCount = document.getElementById('paperCount');
+    const readTime = document.getElementById('readTime');
+    const xStatus = document.getElementById('xStatus');
+    const instaStatus = document.getElementById('instaStatus');
+          
+    const copyBtn = document.getElementById('copyBtn');
+    const clearBtn = document.getElementById('clearBtn');
+    
+    /* 正規表現の定義 */
+    const whitespaceRegex = /[ \u3000\t]/g; // 半角・全角スペースとタブ
+    const lineBreakRegex = /\n/g;           // 改行
+    //const punctuationRegex = /[。\u3001,.、]/g; // 句読点
+    const punctuationRegex = /[。、\u3001,，.．]/g;
+    
+    /* カウント更新ロジック */
+    function updateCount() {
+      let text = textInput.value;
+    
+      // 各チェックボックスの状態に応じて文字を削除（フィルタリング）
+      if (!includeSpaces.checked) {
+        text = text.replace(whitespaceRegex, '');
+      }
+      
+      if (!includeLineBreaks.checked) {
+        text = text.replace(lineBreakRegex, '');
+      }
+    
+      if (!includePunctuation.checked) {
+        text = text.replace(punctuationRegex, '');
+      }
+    
+      const count = text.length;
+      
+      // 表示の更新
+      charCount.textContent = count;
+      paperCount.textContent = (count / 400).toFixed(1);
+      const seconds = Math.ceil((count / 400) * 60);
+      readTime.textContent = seconds;
+      
+    // --- SNS制限判定の共通関数 ---
+      const updateStatus = (element, limit, label = "あと ") => {
+        const remaining = limit - count;
+        if (remaining < 0) {
+          element.innerHTML = `<span class="text-danger">超過 ${Math.abs(remaining)}</span>`;
+        } else {
+          element.textContent = label + remaining;
+        }
+      };
+    
+      // 各SNSへの適用
+      updateStatus(xStatus, 140);      // X (旧Twitter)
+      updateStatus(instaStatus, 2200); // Instagram キャプション
+    }
+    
+    /* コピー機能 */
+    copyBtn.addEventListener('click', () => {
+      if (!textInput.value) return;
+      const originalHTML = copyBtn.innerHTML;
+      navigator.clipboard.writeText(textInput.value).then(() => {
+        copyBtn.innerHTML = '✅ コピー完了';
+        copyBtn.disabled = true;
+        setTimeout(() => {
+          copyBtn.innerHTML = originalHTML;
+          copyBtn.disabled = false;
+        }, 2000);
+      });
+    });
+    
+    /* 全消去機能 */
+    clearBtn.addEventListener('click', () => {
+      if (!textInput.value) return;
+      if (confirm('入力された文章をすべて消去しますか？')) {
+        textInput.value = '';
+        updateCount();
+        textInput.focus();
+      }
+    });
+    
+    /* イベントリスナーの登録 */
+    [textInput, includeSpaces, includeLineBreaks, includePunctuation].forEach(el => {
+      const eventType = el.tagName === 'TEXTAREA' ? 'input' : 'change';
+      el.addEventListener(eventType, updateCount);
+    });
+    
+    // 初期実行
+    updateCount();
+  </script>
+
+</body>
+</html>
