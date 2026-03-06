@@ -201,7 +201,6 @@ body{
   border-radius:12px;
   text-decoration:none;
   background:#fff;
-  margin-bottom:10px;
   box-shadow:0 4px 12px rgba(0,0,0,0.05);
 }
 
@@ -228,6 +227,9 @@ body{
 .popular-desc{
   font-size:13px;
   color:#777;
+}
+#popularSection {
+	padding-bottom: 30px;
 }
 
 #helper{
