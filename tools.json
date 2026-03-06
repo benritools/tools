@@ -2,13 +2,13 @@
   {
     "name": "文字数カウンター",
     "description": "文章やSNS投稿の文字数を簡単に確認できるツールです。空白・句読点・改行を含める / 含めないの切り替えにも対応。",
-    "url": "/apps/character-counter/",
+    "url": "apps/character-counter/",
     "category": "text"
   },
   {
     "name": "カウントダウンタイマー",
     "description": "指定した時間（分秒）までカウントダウンができるタイマーです。一時停止にも対応。",
-    "url": "/apps/timer/",
+    "url": "apps/timer/",
     "category": "time"
   }
 ]
