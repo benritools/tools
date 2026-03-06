@@ -4,12 +4,12 @@ async function loadLayout(){
   const footerEl = document.getElementById("footer");
 
   if(headerEl){
-    const h = await fetch("../common/header.html");
+    const h = await fetch("header.html");
     headerEl.innerHTML = await h.text();
   }
 
   if(footerEl){
-    const f = await fetch("../common/footer.html");
+    const f = await fetch("footer.html");
     footerEl.innerHTML = await f.text();
   }
 }

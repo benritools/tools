@@ -17,7 +17,7 @@ async function loadSidebar(){
   }
   // ------------------------------
 
-  const res = await fetch('/tools.json');
+  const res = await fetch('../../tools.json');
   const tools = await res.json();
 
   renderOtherTools(tools);
