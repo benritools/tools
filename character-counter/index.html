@@ -1,1 +1,260 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <base href="/tools/">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="無料で使える文字数カウンターです。テキストを入力するだけで文字数を自動カウント。空白や改行、句読点のON/OFFにも対応しています。">
+  <title>文字数カウンター｜レポート・SNS投稿に最適な無料計算ツール</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="canonical" href="https://benritools.github.io/tools/character-counter/">
+</head>
 
+<body>
+<div id="header"></div>
+    <div class="layout">
+      
+    <!-- ツールページ本文 -->
+      <div class="main">
+        
+
+      <h1 class="tool-title">文字数カウンター</h1>
+    
+      <!-- ツール本体 -->
+      <div class="tool-main">
+
+          
+          <main class="counter">
+            <p>下記の入力欄に文章や文字を入力すると、文字数をカウントして表示できます。</p>
+          
+            <textarea id="textInput" placeholder="文章を入力してください"></textarea>
+          
+            <div class="action-buttons">
+              <button id="copyBtn" class="btn btn-secondary">📋 コピー</button>
+              <button id="clearBtn" class="btn btn-outline">🗑️ 全消去</button>
+            </div>
+          
+            <div class="bottom">
+            <div class="options-group">
+              <label class="checkbox-label">
+                <input type="checkbox" id="includeSpaces" checked/>
+                空白を含める
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" id="includeLineBreaks" />
+                改行を含める
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" id="includePunctuation" checked />
+                句読点を含める
+              </label>
+            </div>
+              <div class="count-display">
+                <div class="count"><span id="charCount">0</span> <small>文字</small></div>
+              </div>
+            </div>
+          
+            <div class="info-grid">
+              <div class="info-item">
+                <span class="info-label">原稿用紙</span>
+                <span class="info-value"><span id="paperCount">0.0</span> 枚</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">読了時間</span>
+                <span class="info-value">約 <span id="readTime">0</span> 秒</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">X (Twitter)</span>
+                <span class="info-value" id="xStatus">あと 140</span>
+              </div>
+              <div class="info-item">
+                  <span class="info-label">Instagram</span>
+                  <span class="info-value" id="instaStatus">あと 2200</span>
+                </div>
+            </div>
+          </main>
+
+      </div>
+    
+      <!-- 使い方 -->
+      <section class="tool-section">
+        <h2>✏️ 使い方</h2>
+        <ol>
+            <li>上記の「文章を入力してください」と書かれた入力欄に文字数を数えたい文章や文字列を入力、またはコピーしてください。</li>
+          <li>入力した文章の文字数が自動でカウントされ、入力欄の右下に○○文字と文字数が表示されます。</li>
+          <li>「空白を含める」にチェックを付けると、半角空白または全角空白を含めた文字数がカウントされます。</li>
+          <li>「改行を含める」にチェックを付けると、改行を含めた文字数がカウントされます。改行はカウントしない場合は、チェックを外してください。</li>
+          <li>「句読点を含める」にチェックを付けると、「。（全角句点）」「、（全角読点）」「,（半角カンマ）」「，（全角カンマ）」、「.（半角ピリオド）」、「．（全角ピリオド）」を含めて文字数がカウントされます。</li>
+        </ol>
+      </section>
+    
+      <!-- 用途 -->
+      <section class="tool-section">
+        <h2>✅ このツールでできること</h2>
+        <ul>
+          <li>ブログやSNS投稿時に入力する文字数制限を超えていないか確認が出来る。</li>
+          <li>宿題の作文やレポート、資料などの指定された文字数を満たしているか確認が出来る。</li>
+            など
+        </ul>
+      </section>
+    
+      <!-- 困ったとき -->
+      <section class="tool-section">
+        <h2>💦 困ったときは</h2>
+        <ul>
+            <li>入力した内容が反映されない場合は？<br> → 文字数をカウントしたい文章を入力欄にもう一度再入力してみてください。</li>
+            <li>スマホでレイアウトが崩れてしまった場合は？ <br>→ もう一度このページを再読み込みして再度お試しください。</li>
+        </ul>
+      </section>
+    
+      <section class="column-section">
+          <h2 class="column-title">💡 文字数カウントに役立つコラム</h2>
+          
+          <article class="column-article">
+              <h3 class="article-h3">
+                  レポートの文字数が足りない！自然にボリュームアップする5つのコツ
+              </h3>
+              <div class="content-wrapper">
+                      <img src="./character-counter/image1.jpg" alt="イメージ">
+                      
+                      <div class="article-text">
+                          <p>「あと500文字足りない…」「内容を薄くせずに文字数を増やしたい」と悩む大学生の方は多いはず。無理やり言葉を詰め込むのではなく、レポートの質を上げながら文字数を稼ぐための具体的なテクニックをご紹介します。</p>
+                      </div>
+                  </div>
+      
+              <h4 class="article-h4">1. 「具体例」と「エピソード」を肉付けする</h4>
+              <p>最も効果的で、教授からの評価も上がるのが「具体例」の追加です。
+              <div class="comparison-box">
+                  <p>
+                  <strong>Before:</strong> 日本のアニメ文化は海外でも人気がある。<br>↓<br>
+                  <strong>After:</strong> 日本のアニメ文化は海外でも高く評価されている。
+                  例えば、フランスで開催される『ジャパン・エキスポ』では毎年数万人規模の動員があり、日本独自の作画技術やストーリー性が現地の若者に支持されていることが伺える。
+                  </p>
+              </div>
+              <p>このように、<span class="marker-yellow">固有名詞や数字、具体的な背景を書き足すだけで、説得力が増す</span>上に文字数も自然に増えます。</p>
+      
+              <h4 class="article-h4">2. 「反対意見（カウンター）」への言及を入れる</h4>
+              <p>自分の主張だけを書くと、どうしても文字数は頭打ちになります。あえて<span class="marker-yellow">「一方で、これには異論もある」と反対の立場を紹介し、それを論破（または補足）する構成を入れましょう。</span>「確かに〇〇という意見も存在する。しかし、△△という観点から見れば……」と展開することで、論理的な深みが出て、文字数を150〜300文字ほど上乗せできます。</p>
+      
+              <h4 class="article-h4">3. 用語の「定義」を丁寧に説明する</h4>
+              <p>専門用語をそのまま使わず、<span class="marker-yellow">「そもそも〇〇とは〜を指す言葉である」といった定義を序盤に配置</span>します。読者への配慮にもなり、レポートの体裁が整います。</p>
+      
+              <h4 class="article-h4">4. 接続詞を適切に使い、文をつなぐ</h4>
+              <p><span class="marker-yellow">「しかし」「また」「さらに」「したがって」といった接続詞を意識的に使う</span>ことで、文と文の論理関係が明確になり、1文あたりのリズムも整います。当ツールで1文の長さを測りながら、40文字〜60文字程度を目安に整えてみてください。</p>
+      
+              <h4 class="article-h4">5. 当ツールの「原稿用紙換算」を活用したペース配分</h4>
+              <p>文字数だけを見て絶望するより、<span class="marker-yellow">「原稿用紙あと何枚分か」を把握した方が精神的に楽</span>になります。当ツールの計算結果で「あと1.2枚」と分かれば、どのセクションにどれだけ肉付けすればいいか、具体的な戦略が立てやすくなります。</p>
+          </article>
+      </section>
+        
+      </div>
+      <!-- サイドメニュー -->
+      <div id="sidebar-container"></div>
+</div>
+
+
+
+  <!-- フッター -->
+<div id="footer"></div>
+
+<script src="./js/layout.js"></script>
+<script src="./js/sidebar.js"></script>
+
+<script>
+    /* 要素の取得 */
+    const textInput = document.getElementById('textInput');
+    const includeSpaces = document.getElementById('includeSpaces');
+    const includeLineBreaks = document.getElementById('includeLineBreaks');
+    const includePunctuation = document.getElementById('includePunctuation');
+    
+    const charCount = document.getElementById('charCount');
+    const paperCount = document.getElementById('paperCount');
+    const readTime = document.getElementById('readTime');
+    const xStatus = document.getElementById('xStatus');
+    const instaStatus = document.getElementById('instaStatus');
+          
+    const copyBtn = document.getElementById('copyBtn');
+    const clearBtn = document.getElementById('clearBtn');
+    
+    /* 正規表現の定義 */
+    const whitespaceRegex = /[ \u3000\t]/g; // 半角・全角スペースとタブ
+    const lineBreakRegex = /\n/g;           // 改行
+    //const punctuationRegex = /[。\u3001,.、]/g; // 句読点
+    const punctuationRegex = /[。、\u3001,，.．]/g;
+    
+    /* カウント更新ロジック */
+    function updateCount() {
+      let text = textInput.value;
+    
+      // 各チェックボックスの状態に応じて文字を削除（フィルタリング）
+      if (!includeSpaces.checked) {
+        text = text.replace(whitespaceRegex, '');
+      }
+      
+      if (!includeLineBreaks.checked) {
+        text = text.replace(lineBreakRegex, '');
+      }
+    
+      if (!includePunctuation.checked) {
+        text = text.replace(punctuationRegex, '');
+      }
+    
+      const count = text.length;
+      
+      // 表示の更新
+      charCount.textContent = count;
+      paperCount.textContent = (count / 400).toFixed(1);
+      const seconds = Math.ceil((count / 400) * 60);
+      readTime.textContent = seconds;
+      
+    // --- SNS制限判定の共通関数 ---
+      const updateStatus = (element, limit, label = "あと ") => {
+        const remaining = limit - count;
+        if (remaining < 0) {
+          element.innerHTML = `<span class="text-danger">超過 ${Math.abs(remaining)}</span>`;
+        } else {
+          element.textContent = label + remaining;
+        }
+      };
+    
+      // 各SNSへの適用
+      updateStatus(xStatus, 140);      // X (旧Twitter)
+      updateStatus(instaStatus, 2200); // Instagram キャプション
+    }
+    
+    /* コピー機能 */
+    copyBtn.addEventListener('click', () => {
+      if (!textInput.value) return;
+      const originalHTML = copyBtn.innerHTML;
+      navigator.clipboard.writeText(textInput.value).then(() => {
+        copyBtn.innerHTML = '✅ コピー完了';
+        copyBtn.disabled = true;
+        setTimeout(() => {
+          copyBtn.innerHTML = originalHTML;
+          copyBtn.disabled = false;
+        }, 2000);
+      });
+    });
+    
+    /* 全消去機能 */
+    clearBtn.addEventListener('click', () => {
+      if (!textInput.value) return;
+      if (confirm('入力された文章をすべて消去しますか？')) {
+        textInput.value = '';
+        updateCount();
+        textInput.focus();
+      }
+    });
+    
+    /* イベントリスナーの登録 */
+    [textInput, includeSpaces, includeLineBreaks, includePunctuation].forEach(el => {
+      const eventType = el.tagName === 'TEXTAREA' ? 'input' : 'change';
+      el.addEventListener(eventType, updateCount);
+    });
+    
+    // 初期実行
+    updateCount();
+  </script>
+
+</body>
+</html>
