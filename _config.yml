@@ -1,4 +1,4 @@
 url: "https://benritools.github.io"
 baseurl: "/tools"
-theme: jekyll-theme-architect
+theme: jekyll-theme-minimal
 permalink: /blog/:title/
