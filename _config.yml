@@ -1,7 +1,3 @@
 url: "https://benritools.github.io"
 baseurl: "/tools"
-remote_theme: pages-themes/modernist@v0.2.0
-
-# 以下の2つも追加しておくと確実です
-plugins:
-  - jekyll-remote-theme
+theme: jekyll-theme-slate
