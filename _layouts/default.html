@@ -8,15 +8,25 @@
 </head>
 
 <body>
-
-<header>
-  <div class="brand">
-    <img src="/logo.png" alt="Benri Tools ロゴ">
-    <h1>便利ツール集</h1>
+{{ site.baseurl }}
+<div id="header"><div class="site-header">
+  <div class="site-title-group">
+  <a href="{{ site.baseurl }}" class="site-header-inner">
+      <img src="{{ site.baseurl }}/logo.png" class="site-logo" alt="Benri Tools ロゴ">
+      <div class="site-title">便利ツール集</div><br>
+  </a>
+    
+   
+      
   </div>
 
-  <div class="sub">無料でサクッと使えるシンプルな便利ツール集です</div>
-</header>
+
+  <div class="site-desc">無料でサクッと使えるシンプルな便利ツール集です</div>
+</div>
+<div class="header">
+  <!--a href="/">← トップ</a>
+  <a href="/apps/">ツール一覧</a-->
+</div></div>
 
 <main>
 {{ content }}
