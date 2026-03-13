@@ -1,19 +1,37 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
 <meta charset="UTF-8">
 <title>{{ page.title }}</title>
+<link rel="stylesheet" href="/tools/css/style.css">
 </head>
 
 <body>
 
 <header>
-<a href="/tools/">BenriTools</a>
+  <div class="brand">
+    <img src="/logo.png" alt="Benri Tools ロゴ">
+    <h1>便利ツール集</h1>
+  </div>
+
+  <div class="sub">無料でサクッと使えるシンプルな便利ツール集です</div>
 </header>
 
 <main>
 {{ content }}
 </main>
-
+<footer class="footer">
+  <div class="footer-links">
+    <a href="index.html">トップページ</a>
+    <a href="./common/about.html">当サイトについて</a>
+    <a href="./common/privacy.html">プライバシーポリシー</a>
+    <a href="./common/terms.html">利用規約</a>
+    <a href="./common/contact.html">お問い合わせ</a>
+  </div>
+  <div class="footer-copy">
+    © benritools 2026
+  </div>
+</footer>
 </body>
 </html>
