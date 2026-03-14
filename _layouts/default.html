@@ -4,33 +4,65 @@
 <head>
 <meta charset="UTF-8">
 <title>{{ page.title }}</title>
-<link rel="stylesheet" href="/tools/css/style.css">
+<link rel="stylesheet" href="{{ site.baseurl }}/css/style.css">
 </head>
 
 <body>
-{{ site.baseurl }}
-<div id="header"><div class="site-header">
-  <div class="site-title-group">
-  <a href="{{ site.baseurl }}" class="site-header-inner">
-      <img src="{{ site.baseurl }}/logo.png" class="site-logo" alt="Benri Tools ロゴ">
-      <div class="site-title">便利ツール集</div><br>
-  </a>
-    
-   
-      
+<div id="header">
+  <div class="site-header">
+      <div class="site-title-group">
+        <a href="{{ site.baseurl }}" class="site-header-inner">
+            <img src="{{ site.baseurl }}/logo.png" class="site-logo" alt="Benri Tools ロゴ">
+            <div class="site-title">便利ツール集</div><br>
+        </a>
+      </div>
+    <div class="site-desc">無料でサクッと使えるシンプルな便利ツール集です</div>
   </div>
-
-
-  <div class="site-desc">無料でサクッと使えるシンプルな便利ツール集です</div>
+  <div class="header">
+    <!--a href="/">← トップ</a>
+    <a href="/apps/">ツール一覧</a-->
+  </div>
 </div>
-<div class="header">
-  <!--a href="/">← トップ</a>
-  <a href="/apps/">ツール一覧</a-->
-</div></div>
 
-<main>
-{{ content }}
-</main>
+<div class="layout">
+    <!-- ブログ記事本文エリア -->
+    <div class="main">
+        {{ content }}
+    </div>
+    
+    <!-- サイドメニュー -->
+      <div id="sidebar-container">
+      <aside class="sidebar">
+        <div class="sidebar-block">
+          <h3 class="sidebar-title">👑&nbsp;人気ツール</h3>
+          <div id="popular-tools"><a href="character-counter/" class="popular-card">
+      <div class="popular-rank">1</div>
+      <div>
+        <div class="popular-title">文字数カウンター</div>
+      </div>
+    </a><a href="timer/" class="popular-card">
+      <div class="popular-rank">2</div>
+      <div>
+        <div class="popular-title">カウントダウンタイマー</div>
+      </div>
+    </a></div>
+        </div>
+        <div class="sidebar-block">
+          <h3 class="sidebar-title">📌&nbsp;すべてのツール</h3>
+          <div id="sidebar-tools"><a href="character-counter/" class="popular-card">
+      <div>
+        <div class="popular-title">文字数カウンター</div>
+      </div>
+	</a><a href="timer/" class="popular-card">
+      <div>
+        <div class="popular-title">カウントダウンタイマー</div>
+      </div>
+	</a></div>
+        </div>
+      </aside>
+    </div>
+</div>
+
 <footer class="footer">
   <div class="footer-links">
     <a href="index.html">トップページ</a>
