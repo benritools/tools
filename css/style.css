@@ -192,6 +192,13 @@ textarea {
   text-decoration:none;
   color:inherit;
 }
+.site-header-inner:focus {
+  outline: none;
+}
+
+.site-header-inner:active {
+  outline: none;
+}
 
 .site-logo{
 	width:90px;
@@ -460,3 +467,4 @@ pre code {
   border-radius: 8px;
   overflow-x: auto;
 }
+
