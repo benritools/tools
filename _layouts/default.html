@@ -16,7 +16,7 @@
             <div class="site-title">便利ツール集</div><br>
         </a>
       </div>
-    <div class="site-desc">無料でサクッと使えるシンプルな便利ツール集です</div>
+    <div class="site-desc">便利ツール集の作り方や開発ノウハウを紹介する技術ブログ</div>
   </div>
   <div class="header">
     <!--a href="/">← トップ</a>
@@ -27,9 +27,17 @@
 <div class="layout">
     <!-- ブログ記事本文エリア -->
     <div class="main">
-        {{ content }}
+
+		<div class="blog-header">
+		<span class="blog-label">📘 技術ブログ</span>
+		<p class="post-date">{{ page.date | date: "%Y.%m.%d" }}</p>
+		</div>
+		
+		<article class="blog-content">
+		{{ content }}
+		</article>
     </div>
-    
+			
     <!-- サイドメニュー -->
       <div id="sidebar-container">
       <aside class="sidebar">
