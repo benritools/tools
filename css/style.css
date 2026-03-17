@@ -469,7 +469,7 @@ pre code {
   overflow-x: auto;
 }
 
-.toc-title p{
+.toc-title{
     display: block;
     font-size: 1.5em;
     margin-block-start: 0.83em;
@@ -480,9 +480,9 @@ pre code {
 	unicode-bidi: isolate;
 	color: var(--text);
 }
-.blog-label span{
+.blog-label{
 	text-align: right;
 }
-.post-date p{
+.post-date{
 	text-align: right;
 }
