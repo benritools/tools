@@ -480,9 +480,12 @@ pre code {
 	unicode-bidi: isolate;
 	color: var(--text);
 }
-.blog-label{
-	text-align: right;
-}
 .post-date{
 	text-align: right;
+}
+.blog-content{
+	line-height: 1.8em;
+}
+.blog-content h2 {
+	margin-bottom: 30px;
 }
