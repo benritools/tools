@@ -10,10 +10,10 @@ GitHub Pages・ツール開発・Web制作のメモを書いています。
 ---
 
 ## 最新記事
-
+<div class="blog-list">
 {% for post in site.posts %}
 📅 {{ post.date | date: "%Y/%m/%d" }}
 ### [{{ post.title }}]({{ site.baseurl }}/{{ post.url }})
 ---
-
 {% endfor %}
+</div>
