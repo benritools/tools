@@ -7,11 +7,12 @@
   --text: #1f2937;
   --muted: #6b7280;
   --muted2: #a1a2a2;
-  --muted3: #3c3c3c;
+  --muted3: #5d636f;
   --accent: #4f46e5;
   --border: #dbe3ee;
   --lightgray: #f9fafb;
   --bgblack: #1e1e1e;
+  --marker: #ffff99;
 }
 
 /* ===== リセット・ベース設定 ===== */
@@ -419,8 +420,9 @@ textarea {
 
 /* 蛍光ペン */
 .marker-yellow {
-	background: linear-gradient(transparent 60%, #ffff99 60%);
+	background: linear-gradient(transparent 60%, var(--marker) 60%);
 	font-weight: bold;
+	
 }
 
 @media (max-width:900px){
