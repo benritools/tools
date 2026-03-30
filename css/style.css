@@ -476,7 +476,7 @@ pre code {
 }
 
 .code-block-small pre {
-  max-width: 500px;
+  max-width: 550px;
   margin: 12px 0;
   padding: 12px;
   font-size: 13px;
