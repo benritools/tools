@@ -474,6 +474,15 @@ pre code {
   background: none;
   padding: 0;
 }
+
+.code-block-small pre {
+  max-width: 500px;
+  margin: 12px 0;
+  padding: 12px;
+  font-size: 13px;
+  border-radius: 6px;
+}
+
 .highlight {
   background: var(--bgblack);
   padding: 16px;
