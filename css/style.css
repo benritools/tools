@@ -53,6 +53,15 @@ p {
   font-size: 0.95rem;
 }
 
+strong {
+  color: var(--text);
+}
+
+li {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
 textarea {
   width: 100%;
   min-height: 210px;
