@@ -475,6 +475,10 @@ pre code {
   padding: 0;
 }
 
+blockquote {
+	margin-top: 20px;
+}
+
 .code-block-small pre {
   max-width: 550px;
   margin: 12px 0;
