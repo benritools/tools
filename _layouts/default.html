@@ -11,7 +11,7 @@
 <div id="header">
   <div class="site-header">
       <div class="site-title-group">
-        <a href="{{ site.baseurl }}" class="site-header-inner">
+        <a href="{{ '/' | relative_url }}" class="site-header-inner">
             <img src="{{ site.baseurl }}/logo.png" class="site-logo" alt="Benri Tools ロゴ">
             <div class="site-title">便利ツール集</div><br>
         </a>
@@ -65,11 +65,11 @@
 
 <footer class="footer">
   <div class="footer-links">
-    <a href="index.html">トップページ</a>
-    <a href="../common/about.html">当サイトについて</a>
-    <a href="../common/privacy.html">プライバシーポリシー</a>
-    <a href="../common/terms.html">利用規約</a>
-    <a href="../common/contact.html">お問い合わせ</a>
+	<a href="{{ '/' | relative_url }}">トップページ</a>
+	<a href="{{ '/common/about.html' | relative_url }}">当サイトについて</a>
+	<a href="{{ '/common/privacy.html' | relative_url }}">プライバシーポリシー</a>
+	<a href="{{ '/common/terms.html' | relative_url }}">利用規約</a>
+	<a href="{{ '/common/contact.html' | relative_url }}">お問い合わせ</a>
   </div>
   <div class="footer-copy">
     © benritools 2026
