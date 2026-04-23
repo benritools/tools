@@ -82,10 +82,23 @@ CloudWatchはAWSの監視サービスですが、**請求金額のアラーム**
 
 まず以下を有効化します。
 
-1. Billingダッシュボードを開く  
-2. 「請求アラートを受信」を有効化  
-
-※これをやらないとCloudWatchで監視できません
+1. 右上アカウント名をクリック > Billing and Cost Managementダッシュボードを開く
+2. 左側メニュー「請求設定」をクリックし、請求設定ページを表示する
+<a href="{{ site.baseurl }}/assets/images/aws-billing-alerts4-1.png" target="_blank">
+  <img src="{{ site.baseurl }}/assets/images/aws-billing-alerts4-1.png" alt="billingダッシュボード" style="max-width: 90%;">
+</a>
+3. 請求設定ページのアラート設定欄の「編集」をクリックする  
+<a href="{{ site.baseurl }}/assets/images/aws-billing-alerts4-2.png" target="_blank">
+  <img src="{{ site.baseurl }}/assets/images/aws-billing-alerts4-2.png" alt="請求設定ページ" style="max-width: 90%;">
+</a>
+4. アラート設定の
+- AWS無料利用枠アラートを受信する
+- CloudWatch請求アラートを受信する
+にチェックをつけて、更新する。
+<a href="{{ site.baseurl }}/assets/images/aws-billing-alerts4-3.png" target="_blank">
+  <img src="{{ site.baseurl }}/assets/images/aws-billing-alerts4-4.png" alt="アラート設定" style="max-width: 90%;">
+</a>
+※これをやらないとこの後のCloudWatchで監視する設定ができません。
 
 
 
