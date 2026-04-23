@@ -152,7 +152,7 @@ CloudWatchはAWSの監視サービスですが、**請求金額のアラーム**
 
 にチェックをつけて、更新する。
 <a href="{{ site.baseurl }}/assets/images/aws-billing-alerts4-3.png" target="_blank">
-  <img src="{{ site.baseurl }}/assets/images/aws-billing-alerts4-4.png" alt="アラート設定" style="max-width: 90%;">
+  <img src="{{ site.baseurl }}/assets/images/aws-billing-alerts4-3.png" alt="アラート設定" style="max-width: 90%;">
 </a>
 
 👉 これをやらないとこの後のCloudWatchで監視する設定ができません。
