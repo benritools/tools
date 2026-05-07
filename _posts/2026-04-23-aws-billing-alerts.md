@@ -190,11 +190,11 @@ CloudWatchはAWSの監視サービスですが、**請求金額のアラーム**
 
 4. メトリクスと条件の指定
 
-条件で「以上（≧しきい値）」を選択し、「...よりも」の欄に「1」USDと入力し、次へボタンを押します。
+   条件で「以上（≧しきい値）」を選択し、「...よりも」の欄に「1」USDと入力し、次へボタンを押します。
 
-<a href="{{ site.baseurl }}/assets/images/aws-billing-alerts4-8.png" target="_blank">
-  <img src="{{ site.baseurl }}/assets/images/aws-billing-alerts4-8.png" alt="条件の指定" style="max-width: 90%;">
-</a>
+   <a href="{{ site.baseurl }}/assets/images/aws-billing-alerts4-8.png" target="_blank">
+     <img src="{{ site.baseurl }}/assets/images/aws-billing-alerts4-8.png" alt="条件の指定" style="max-width: 90%;">
+   </a>
 
 
 5. アクションの設定
@@ -222,18 +222,18 @@ CloudWatchはAWSの監視サービスですが、**請求金額のアラーム**
 
 7. トピックのEメール認証を行う
 
-5.で入力した通知を受け取るEメールアドレス宛てに、AWSからメールが届きます。
+   5.で入力した通知を受け取るEメールアドレス宛てに、AWSからメールが届きます。
 
-メール本文のConfirm subscriptionをクリックします。
+   メール本文のConfirm subscriptionをクリックします。
 
-<a href="{{ site.baseurl }}/assets/images/aws-billing-alerts4-11.png" target="_blank">
-  <img src="{{ site.baseurl }}/assets/images/aws-billing-alerts4-11.png" alt="Eメール認証" style="max-width: 90%;">
-</a>
+   <a href="{{ site.baseurl }}/assets/images/aws-billing-alerts4-11.png" target="_blank">
+     <img src="{{ site.baseurl }}/assets/images/aws-billing-alerts4-11.png" alt="Eメール認証" style="max-width: 90%;">
+   </a>
 
-認証完了ページが表示され、認証が完了します。
-<a href="{{ site.baseurl }}/assets/images/aws-billing-alerts4-12.png" target="_blank">
-  <img src="{{ site.baseurl }}/assets/images/aws-billing-alerts4-12.png" alt="認証が完了" style="max-width: 90%;">
-</a>
+   認証完了ページが表示され、認証が完了します。
+   <a href="{{ site.baseurl }}/assets/images/aws-billing-alerts4-12.png" target="_blank">
+     <img src="{{ site.baseurl }}/assets/images/aws-billing-alerts4-12.png" alt="認証が完了" style="max-width: 90%;">
+   </a>
 
 ### 4-4. 注意点
 
