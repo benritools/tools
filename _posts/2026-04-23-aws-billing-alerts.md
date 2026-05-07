@@ -190,7 +190,7 @@ CloudWatchはAWSの監視サービスですが、**請求金額のアラーム**
 
 4. メトリクスと条件の指定
 
-  条件で「以上（≧しきい値）」を選択し、「...よりも」の欄に「1」USDと入力し、次へボタンを押します。
+条件で「以上（≧しきい値）」を選択し、「...よりも」の欄に「1」USDと入力し、次へボタンを押します。
 
 <a href="{{ site.baseurl }}/assets/images/aws-billing-alerts4-8.png" target="_blank">
   <img src="{{ site.baseurl }}/assets/images/aws-billing-alerts4-8.png" alt="条件の指定" style="max-width: 90%;">
@@ -198,7 +198,7 @@ CloudWatchはAWSの監視サービスですが、**請求金額のアラーム**
 
 
 5. アクションの設定
-  通知用に新しいトピックを作成します。
+通知用に新しいトピックを作成します。
 
 「新しいトピックの作成」を選択し、通知を受け取るEメールアドレスを入力し、トピックの作成ボタンを押します。
 
