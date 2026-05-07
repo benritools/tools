@@ -160,41 +160,67 @@ CloudWatchはAWSの監視サービスですが、**請求金額のアラーム**
 
 ### 4-3. 請求アラーム作成手順
 
-1. CloudWatchを開く  
-2. 「アラーム」→「アラームの作成」  
+1. CloudWatchを開く 
+⚠️この設定は米国（バージニア北部）リージョンで行ってください。
+
+2. アラームの作成
+「アラーム」→「アラームの作成」を選択します
 <a href="{{ site.baseurl }}/assets/images/aws-billing-alerts4-4.png" target="_blank">
   <img src="{{ site.baseurl }}/assets/images/aws-billing-alerts4-4.png" alt="アラーム作成" style="max-width: 90%;">
 </a>
 
 3. メトリクスの選択  
-   - Billingを選択する
+   - Billingを選択します。
 <a href="{{ site.baseurl }}/assets/images/aws-billing-alerts4-5.png" target="_blank">
   <img src="{{ site.baseurl }}/assets/images/aws-billing-alerts4-5.png" alt="Billing" style="max-width: 90%;">
 </a>
 
-   - 概算合計請求額（Total Estimated Charge）を選択する
+   - 概算合計請求額（Total Estimated Charge）を選択します。
 <a href="{{ site.baseurl }}/assets/images/aws-billing-alerts4-6.png" target="_blank">
   <img src="{{ site.baseurl }}/assets/images/aws-billing-alerts4-6.png" alt="Total Estimated Charge" style="max-width: 90%;">
 </a>
-   - Estimated Charge USDにチェックを入れて進む
+
+   - Estimated Charge USDにチェックを入れて、「メトリクスの選択」ボタンを押します。
 <a href="{{ site.baseurl }}/assets/images/aws-billing-alerts4-7.png" target="_blank">
   <img src="{{ site.baseurl }}/assets/images/aws-billing-alerts4-7.png" alt="Estimated Charge" style="max-width: 90%;">
 </a>
 
-4. 通貨：USD  
-5. しきい値：1 USD  
-6. SNSでメール通知設定  
+4. メトリクスと条件の指定
+  - 条件で「以上（≧しきい値）」を選択し、「...よりも」の欄に「1」USDと入力し、次へボタンを押します。
+<a href="{{ site.baseurl }}/assets/images/aws-billing-alerts4-8.png" target="_blank">
+  <img src="{{ site.baseurl }}/assets/images/aws-billing-alerts4-8.png" alt="条件の指定" style="max-width: 90%;">
+</a>
 
+5. アクションの設定
+  - 通知用に新しいトピックを作成します。
+  　「新しいトピックの作成」を選択し、通知を受け取るEメールアドレスを入力し、トピックの作成ボタンを押します。トピックが作成されたら、次へボタンを押します
+<a href="{{ site.baseurl }}/assets/images/aws-billing-alerts4-9.png" target="_blank">
+  <img src="{{ site.baseurl }}/assets/images/aws-billing-alerts4-9.png" alt="アクションの設定" style="max-width: 90%;">
+</a>
 
+6. アラームの詳細の追加
+  - 任意のアラーム名を入力し、次へボタンを押します。確認ページが表示されますので、設定を完了します。
+<a href="{{ site.baseurl }}/assets/images/aws-billing-alerts4-10.png" target="_blank">
+  <img src="{{ site.baseurl }}/assets/images/aws-billing-alerts4-10.png" alt="アラームの詳細" style="max-width: 90%;">
+</a>
+
+7. トピックのEメール認証を行う
+  - 5.で入力した通知を受け取るEメールアドレス宛てに、AWSからメールが届きます。メール本文のConfirm subscriptionをクリックします。
+<a href="{{ site.baseurl }}/assets/images/aws-billing-alerts4-11.png" target="_blank">
+  <img src="{{ site.baseurl }}/assets/images/aws-billing-alerts4-11.png" alt="Eメール認証" style="max-width: 90%;">
+</a>
+  - 認証完了ページが表示され、認証が完了します。
+<a href="{{ site.baseurl }}/assets/images/aws-billing-alerts4-12.png" target="_blank">
+  <img src="{{ site.baseurl }}/assets/images/aws-billing-alerts4-12.png" alt="認証が完了" style="max-width: 90%;">
+</a>
 
 ### 4-4. 注意点
 
-- リージョンは「US East (N. Virginia)」で設定する必要があります  
-- 他のリージョンでは請求メトリクスが表示されません  
+- ⚠️リージョンは「米国（バージニア北部）」で設定する必要があります。他のリージョンでは請求メトリクスが表示されません  
 
 ---
 
-## 5. この設定自体に費用はかかるか？ {#cost}
+## 5. この設定自体に費用はかかるのか？ {#cost}
 
 これは一番気になるポイントですね。結論から言うと、**今回の構成ならほぼ0円で運用できます。**
 
