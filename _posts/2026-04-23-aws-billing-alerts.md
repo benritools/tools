@@ -198,26 +198,26 @@ CloudWatchはAWSの監視サービスですが、**請求金額のアラーム**
 
 
 5. アクションの設定
-通知用に新しいトピックを作成します。
 
-「新しいトピックの作成」を選択し、通知を受け取るEメールアドレスを入力し、トピックの作成ボタンを押します。
+   通知用に新しいトピックを作成します。
 
-トピックが作成されたら、次へボタンを押します。
+   「新しいトピックの作成」を選択し、通知を受け取るEメールアドレスを入力し、トピックの作成ボタンを押します。
 
-<a href="{{ site.baseurl }}/assets/images/aws-billing-alerts4-9.png" target="_blank">
-  <img src="{{ site.baseurl }}/assets/images/aws-billing-alerts4-9.png" alt="アクションの設定" style="max-width: 90%;">
-</a>
+   トピックが作成されたら、次へボタンを押します。
 
+   <a href="{{ site.baseurl }}/assets/images/aws-billing-alerts4-9.png" target="_blank">
+     <img src="{{ site.baseurl }}/assets/images/aws-billing-alerts4-9.png" alt="アクションの設定" style="max-width: 90%;">
+   </a>
 
 6. アラームの詳細の追加
 
-任意のアラーム名を入力し、次へボタンを押します。
+   任意のアラーム名を入力し、次へボタンを押します。
 
-確認ページが表示されますので、設定を完了します。
+   確認ページが表示されますので、設定を完了します。
 
-<a href="{{ site.baseurl }}/assets/images/aws-billing-alerts4-10.png" target="_blank">
-  <img src="{{ site.baseurl }}/assets/images/aws-billing-alerts4-10.png" alt="アラームの詳細" style="max-width: 90%;">
-</a>
+   <a href="{{ site.baseurl }}/assets/images/aws-billing-alerts4-10.png" target="_blank">
+     <img src="{{ site.baseurl }}/assets/images/aws-billing-alerts4-10.png" alt="アラームの詳細" style="max-width: 90%;">
+   </a>
 
 
 7. トピックのEメール認証を行う
