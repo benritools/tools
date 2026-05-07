@@ -171,31 +171,33 @@ CloudWatchはAWSの監視サービスですが、**請求金額のアラーム**
 </a>
 
 
-3. メトリクスの選択  
+3. メトリクスの選択
+
    - Billingを選択します。
-<a href="{{ site.baseurl }}/assets/images/aws-billing-alerts4-5.png" target="_blank">
-  <img src="{{ site.baseurl }}/assets/images/aws-billing-alerts4-5.png" alt="Billing" style="max-width: 90%;">
-</a>
+
+     <a href="{{ site.baseurl }}/assets/images/aws-billing-alerts4-5.png" target="_blank">
+       <img src="{{ site.baseurl }}/assets/images/aws-billing-alerts4-5.png" alt="Billing" style="max-width: 90%;">
+     </a>
 
    - 概算合計請求額（Total Estimated Charge）を選択します。
-<a href="{{ site.baseurl }}/assets/images/aws-billing-alerts4-6.png" target="_blank">
-  <img src="{{ site.baseurl }}/assets/images/aws-billing-alerts4-6.png" alt="Total Estimated Charge" style="max-width: 90%;">
-</a>
+     <a href="{{ site.baseurl }}/assets/images/aws-billing-alerts4-6.png" target="_blank">
+       <img src="{{ site.baseurl }}/assets/images/aws-billing-alerts4-6.png" alt="Total Estimated Charge" style="max-width: 90%;">
+     </a>
 
    - Estimated Charge USDにチェックを入れて、「メトリクスの選択」ボタンを押します。
-<a href="{{ site.baseurl }}/assets/images/aws-billing-alerts4-7.png" target="_blank">
-  <img src="{{ site.baseurl }}/assets/images/aws-billing-alerts4-7.png" alt="Estimated Charge" style="max-width: 90%;">
-</a>
+     <a href="{{ site.baseurl }}/assets/images/aws-billing-alerts4-7.png" target="_blank">
+       <img src="{{ site.baseurl }}/assets/images/aws-billing-alerts4-7.png" alt="Estimated Charge" style="max-width: 90%;">
+     </a>
 
 
 
 4. メトリクスと条件の指定
 
-条件で「以上（≧しきい値）」を選択し、「...よりも」の欄に「1」USDと入力し、次へボタンを押します。
+   条件で「以上（≧しきい値）」を選択し、「...よりも」の欄に「1」USDと入力し、次へボタンを押します。
 
-<a href="{{ site.baseurl }}/assets/images/aws-billing-alerts4-8.png" target="_blank">
-  <img src="{{ site.baseurl }}/assets/images/aws-billing-alerts4-8.png" alt="条件の指定" style="max-width: 90%;">
-</a>
+     <a href="{{ site.baseurl }}/assets/images/aws-billing-alerts4-8.png" target="_blank">
+       <img src="{{ site.baseurl }}/assets/images/aws-billing-alerts4-8.png" alt="条件の指定" style="max-width: 90%;">
+     </a>
 
 
 5. アクションの設定
