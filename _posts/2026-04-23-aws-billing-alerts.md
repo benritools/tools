@@ -163,11 +163,13 @@ CloudWatchはAWSの監視サービスですが、**請求金額のアラーム**
 1. CloudWatchを開く 
 ⚠️この設定は米国（バージニア北部）リージョンで行ってください。
 
+
 2. アラームの作成
 「アラーム」→「アラームの作成」を選択します
 <a href="{{ site.baseurl }}/assets/images/aws-billing-alerts4-4.png" target="_blank">
   <img src="{{ site.baseurl }}/assets/images/aws-billing-alerts4-4.png" alt="アラーム作成" style="max-width: 90%;">
 </a>
+
 
 3. メトリクスの選択  
    - Billingを選択します。
@@ -185,11 +187,14 @@ CloudWatchはAWSの監視サービスですが、**請求金額のアラーム**
   <img src="{{ site.baseurl }}/assets/images/aws-billing-alerts4-7.png" alt="Estimated Charge" style="max-width: 90%;">
 </a>
 
+
 4. メトリクスと条件の指定
   - 条件で「以上（≧しきい値）」を選択し、「...よりも」の欄に「1」USDと入力し、次へボタンを押します。
+  
 <a href="{{ site.baseurl }}/assets/images/aws-billing-alerts4-8.png" target="_blank">
   <img src="{{ site.baseurl }}/assets/images/aws-billing-alerts4-8.png" alt="条件の指定" style="max-width: 90%;">
 </a>
+
 
 5. アクションの設定
   - 通知用に新しいトピックを作成します。
@@ -198,11 +203,13 @@ CloudWatchはAWSの監視サービスですが、**請求金額のアラーム**
   <img src="{{ site.baseurl }}/assets/images/aws-billing-alerts4-9.png" alt="アクションの設定" style="max-width: 90%;">
 </a>
 
+
 6. アラームの詳細の追加
   - 任意のアラーム名を入力し、次へボタンを押します。確認ページが表示されますので、設定を完了します。
 <a href="{{ site.baseurl }}/assets/images/aws-billing-alerts4-10.png" target="_blank">
   <img src="{{ site.baseurl }}/assets/images/aws-billing-alerts4-10.png" alt="アラームの詳細" style="max-width: 90%;">
 </a>
+
 
 7. トピックのEメール認証を行う
   - 5.で入力した通知を受け取るEメールアドレス宛てに、AWSからメールが届きます。メール本文のConfirm subscriptionをクリックします。
