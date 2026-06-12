@@ -1,4 +1,4 @@
-url: "https://www.benritoolbox.com"
+url: "https://benritoolbox.com"
 baseurl: ""
 theme: jekyll-theme-minimal
 permalink: /blog/:title/
