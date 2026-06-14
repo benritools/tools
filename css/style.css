@@ -514,3 +514,56 @@ blockquote {
 .blog-content h2 {
 	margin-top: 50px;
 }
+
+/* ===== 汎用ツール用 追加スタイル ===== */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+  margin: 16px 0;
+}
+.form-grid label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: var(--muted3);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+input[type="text"], input[type="number"], input[type="date"], select, .text-input-large {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-size: 1rem;
+  background: #fff;
+  color: var(--text);
+  outline: none;
+}
+.result-box {
+  margin-top: 18px;
+  padding: 18px;
+  border: 1px dashed var(--border);
+  border-radius: 14px;
+  background: var(--lightgray);
+}
+.tool-divider {
+  border: none;
+  border-top: 1px dashed var(--border);
+  margin: 24px 0;
+}
+.qr-box {
+  margin-top: 18px;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  border: 1px dashed var(--border);
+  border-radius: 14px;
+  background: var(--lightgray);
+}
+.text-input-large {
+  margin-top: 16px;
+  font-weight: 700;
+  color: var(--accent);
+}
+

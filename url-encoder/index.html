@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="URLや日本語文字列を無料でエンコード・デコードできる変換ツールです。">
+  <title>URLエンコード・デコードツール｜無料便利ツール</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="canonical" href="https://www.benritoolbox.com/url-encoder/">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2585839901084691" crossorigin="anonymous"></script>
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "WebApplication",
+ "name": "URLエンコード・デコードツール",
+ "url": "https://www.benritoolbox.com/url-encoder/",
+ "applicationCategory": "UtilityApplication",
+ "operatingSystem": "Any",
+ "description": "URLや日本語文字列を無料でエンコード・デコードできる変換ツールです。"
+}
+</script>
+</head>
+<body>
+<div id="header"></div>
+<div class="layout">
+  <div class="main">
+    <h1 class="tool-title">URLエンコード・デコードツール</h1>
+    <div class="tool-main">
+      <main class="counter">
+        <p>URLや日本語をエンコード・デコードできます。</p>
+<textarea id="sourceText" placeholder="変換したいURLや文字列を入力してください"></textarea>
+<div class="action-buttons"><button id="encodeBtn" class="btn btn-secondary">エンコード</button><button id="decodeBtn" class="btn btn-secondary">デコード</button><button id="copyBtn" class="btn btn-outline">コピー</button></div>
+<textarea id="resultText" placeholder="変換結果" readonly></textarea>
+      </main>
+    </div>
+    <section class="tool-section"><h2>✏️ 使い方</h2><ol><li>変換したい文字列を入力します。</li><li>エンコードまたはデコードを選びます。</li><li>変換結果をコピーして利用します。</li></ol></section>
+<section class="tool-section"><h2>✅ このツールでできること</h2><ul><li>日本語を含むURLの変換に使えます。</li><li>APIやWeb制作時のURL確認に使えます。</li></ul></section>
+<section class="tool-section"><h2>💦 困ったときは</h2><ul><li>デコード時にエラーが出る場合は、入力文字列に%の不足などがないか確認してください。</li></ul></section>
+  </div>
+  <div id="sidebar-container"></div>
+</div>
+<div id="footer"></div>
+<script src="./js/layout.js"></script>
+<script src="./js/sidebar.js"></script>
+<script>
+encodeBtn.onclick=()=>{resultText.value=encodeURIComponent(sourceText.value);};
+decodeBtn.onclick=()=>{try{resultText.value=decodeURIComponent(sourceText.value);}catch(e){resultText.value='デコードできない文字列です。';}};
+copyBtn.onclick=()=>{if(resultText.value) navigator.clipboard.writeText(resultText.value);};
+</script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="今日から何日後・何日前の日付や、2つの日付の差を無料で計算できる日付計算ツールです。">
+  <title>日付計算ツール｜無料便利ツール</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="canonical" href="https://www.benritoolbox.com/date-calculator/">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2585839901084691" crossorigin="anonymous"></script>
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "WebApplication",
+ "name": "日付計算ツール",
+ "url": "https://www.benritoolbox.com/date-calculator/",
+ "applicationCategory": "UtilityApplication",
+ "operatingSystem": "Any",
+ "description": "今日から何日後・何日前の日付や、2つの日付の差を無料で計算できる日付計算ツールです。"
+}
+</script>
+</head>
+<body>
+<div id="header"></div>
+<div class="layout">
+  <div class="main">
+    <h1 class="tool-title">日付計算ツール</h1>
+    <div class="tool-main">
+      <main class="counter">
+        <p>開始日と日数を入力すると、何日後・何日前の日付や、2つの日付の差を計算できます。</p>
+<div class="form-grid">
+<label>開始日<input type="date" id="startDate"></label>
+<label>日数<input type="number" id="days" value="100"></label>
+<label>計算方向<select id="direction"><option value="after">何日後</option><option value="before">何日前</option></select></label>
+</div>
+<div class="action-buttons"><button id="calcBtn" class="btn btn-secondary">計算する</button><button id="todayBtn" class="btn btn-outline">今日を入力</button></div>
+<div class="result-box"><div class="count"><span id="resultDate">-</span></div><p id="resultText">日付を入力してください。</p></div>
+<hr class="tool-divider">
+<p>2つの日付の間の日数も計算できます。</p>
+<div class="form-grid"><label>日付1<input type="date" id="dateA"></label><label>日付2<input type="date" id="dateB"></label></div>
+<div class="info-grid"><div class="info-item"><span class="info-label">日数差</span><span class="info-value"><span id="diffDays">0</span> 日</span></div></div>
+      </main>
+    </div>
+    <section class="tool-section"><h2>✏️ 使い方</h2><ol><li>開始日を選択します。</li><li>日数と計算方向を入力します。</li><li>結果の日付が自動で表示されます。</li></ol></section>
+<section class="tool-section"><h2>✅ このツールでできること</h2><ul><li>今日から100日後、30日前などの日付を調べられます。</li><li>記念日、締切、退職日、提出期限までの日数確認に使えます。</li></ul></section>
+<section class="tool-section"><h2>💦 困ったときは</h2><ul><li>結果が合わない場合は、日付と日数の入力内容を確認してください。</li></ul></section>
+  </div>
+  <div id="sidebar-container"></div>
+</div>
+<div id="footer"></div>
+<script src="./js/layout.js"></script>
+<script src="./js/sidebar.js"></script>
+<script>
+const fmt=d=>`${d.getFullYear()}年${d.getMonth()+1}月${d.getDate()}日`;
+const iso=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+function setToday(){const t=new Date(); startDate.value=iso(t); dateA.value=iso(t); calc(); diff();}
+function calc(){if(!startDate.value){resultText.textContent='日付を入力してください。';return;} const d=new Date(startDate.value+'T00:00:00'); const n=Number(days.value||0)*(direction.value==='before'?-1:1); d.setDate(d.getDate()+n); resultDate.textContent=fmt(d); resultText.textContent=`${Math.abs(Number(days.value||0))}日${direction.value==='before'?'前':'後'}の日付です。`; }
+function diff(){if(!dateA.value||!dateB.value)return; const a=new Date(dateA.value+'T00:00:00'), b=new Date(dateB.value+'T00:00:00'); diffDays.textContent=Math.abs(Math.round((b-a)/86400000));}
+calcBtn.onclick=calc; todayBtn.onclick=setToday; [startDate,days,direction].forEach(e=>e.addEventListener('input',calc)); [dateA,dateB].forEach(e=>e.addEventListener('input',diff)); setToday();
+</script>
+</body>
+</html>

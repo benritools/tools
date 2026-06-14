@@ -10,5 +10,61 @@
     "description": "指定した時間（分秒）までカウントダウンができるタイマーです。一時停止にも対応。",
     "url": "timer/",
     "category": "time"
+  },
+    {
+    "name": "日付計算ツール",
+    "description": "今日からまたは指定した日付から、何日後・何日前、日付の差を計算できます。",
+    "url": "/date-calculator/",
+    "category": "生活",
+    "keywords": "日付計算,何日後,何日前,あと何日"
+  },
+  {
+    "name": "年齢計算ツール",
+    "description": "基準日を指定し、生年月日から年齢、生後日数、干支、学年目安を計算できます。",
+    "url": "/age-calculator/",
+    "category": "生活",
+    "keywords": "年齢計算,生年月日,生後日数,学年"
+  },
+  {
+    "name": "QRコード作成ツール",
+    "description": "URLやテキストからQRコードを自動で作成できます。作成したQRコードは保存したり、印刷にお使いいただけます。",
+    "url": "/qr-code/",
+    "category": "ビジネス",
+    "keywords": "QRコード,QR作成,URL"
+  },
+  {
+    "name": "改行削除ツール",
+    "description": "長い文章の改行を自動で削除して1行のテキストに整えます。",
+    "url": "/line-break-remover/",
+    "category": "文章",
+    "keywords": "改行削除,空白削除,文章整形"
+  },
+  {
+    "name": "URLエンコード・デコードツール",
+    "description": "URLや日本語文字列をエンコード変換したり・デコードすることができます。",
+    "url": "/url-encoder/",
+    "category": "開発",
+    "keywords": "URLエンコード,URLデコード,encode"
+  },
+  {
+    "name": "単位変換ツール",
+    "description": "長さ、重さ、面積の単位を変換できます。inchや坪などの単位にも対応。",
+    "url": "/unit-converter/",
+    "category": "計算",
+    "keywords": "単位変換,cm,inch,kg,坪"
+  },
+  {
+    "name": "パスワード生成ツール",
+    "description": "英大文字、小文字、数字、記号などの条件を指定しランダムなパスワードを自動生成できます。",
+    "url": "/password-generator/",
+    "category": "セキュリティ",
+    "keywords": "パスワード生成,ランダム,password"
+  },
+  {
+    "name": "ルーレットツール",
+    "description": "候補の中からランダムに1つ選べます。抽選や順番、夕飯のメニューやお店決めにもご活用下さい。",
+    "url": "/roulette/",
+    "category": "抽選",
+    "keywords": "ルーレット,抽選,順番決め"
   }
 ]

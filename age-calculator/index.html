@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="生年月日から年齢、生後日数、干支、学年の目安を無料で計算できる年齢計算ツールです。">
+  <title>年齢計算ツール｜無料便利ツール</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="canonical" href="https://www.benritoolbox.com/age-calculator/">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2585839901084691" crossorigin="anonymous"></script>
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "WebApplication",
+ "name": "年齢計算ツール",
+ "url": "https://www.benritoolbox.com/age-calculator/",
+ "applicationCategory": "UtilityApplication",
+ "operatingSystem": "Any",
+ "description": "生年月日から年齢、生後日数、干支、学年の目安を無料で計算できる年齢計算ツールです。"
+}
+</script>
+</head>
+<body>
+<div id="header"></div>
+<div class="layout">
+  <div class="main">
+    <h1 class="tool-title">年齢計算ツール</h1>
+    <div class="tool-main">
+      <main class="counter">
+        <p>生年月日を入力すると、現在の年齢、学年の目安、生後日数、干支を計算できます。</p>
+<div class="form-grid"><label>生年月日<input type="date" id="birthDate"></label><label>基準日<input type="date" id="baseDate"></label></div>
+<div class="info-grid"><div class="info-item"><span class="info-label">年齢</span><span class="info-value"><span id="ageText">-</span></span></div><div class="info-item"><span class="info-label">生後日数</span><span class="info-value"><span id="daysAlive">-</span> 日</span></div><div class="info-item"><span class="info-label">干支</span><span class="info-value" id="eto">-</span></div><div class="info-item"><span class="info-label">学年目安</span><span class="info-value" id="grade">-</span></div></div>
+      </main>
+    </div>
+    <section class="tool-section"><h2>✏️ 使い方</h2><ol><li>生年月日を入力します。</li><li>必要に応じて基準日を変更します。</li><li>年齢、生後日数、干支、学年目安が表示されます。</li></ol></section>
+<section class="tool-section"><h2>✅ このツールでできること</h2><ul><li>履歴書や申請書に書く年齢確認に使えます。</li><li>子どもの学年や生後日数の確認に使えます。</li></ul></section>
+<section class="tool-section"><h2>💦 困ったときは</h2><ul><li>学年は4月始まりの一般的な目安です。正確な判定が必要な場合は学校や自治体の案内を確認してください。</li></ul></section>
+  </div>
+  <div id="sidebar-container"></div>
+</div>
+<div id="footer"></div>
+<script src="./js/layout.js"></script>
+<script src="./js/sidebar.js"></script>
+<script>
+const iso=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`; baseDate.value=iso(new Date());
+const etoList=['申','酉','戌','亥','子','丑','寅','卯','辰','巳','午','未'];
+function calcAge(){if(!birthDate.value||!baseDate.value)return; const b=new Date(birthDate.value+'T00:00:00'), base=new Date(baseDate.value+'T00:00:00'); if(base<b){ageText.textContent='-'; return;} let y=base.getFullYear()-b.getFullYear(), m=base.getMonth()-b.getMonth(), d=base.getDate()-b.getDate(); if(d<0){m--; d+=new Date(base.getFullYear(),base.getMonth(),0).getDate();} if(m<0){y--; m+=12;} ageText.textContent=`${y}歳${m}ヶ月${d}日`; daysAlive.textContent=Math.floor((base-b)/86400000).toLocaleString(); eto.textContent=etoList[b.getFullYear()%12]; let schoolYear=base.getFullYear()-(base.getMonth()<3?1:0); let ageAtApr1=schoolYear-b.getFullYear()-((b.getMonth()>3||b.getMonth()===3&&b.getDate()>1)?1:0); const names={6:'小学1年生',7:'小学2年生',8:'小学3年生',9:'小学4年生',10:'小学5年生',11:'小学6年生',12:'中学1年生',13:'中学2年生',14:'中学3年生',15:'高校1年生',16:'高校2年生',17:'高校3年生'}; grade.textContent=names[ageAtApr1]||'対象外';}
+[birthDate,baseDate].forEach(e=>e.addEventListener('input',calcAge));
+</script>
+</body>
+</html>

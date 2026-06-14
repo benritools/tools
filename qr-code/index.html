@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="URLやテキストを入力するだけでQRコードを無料作成できるシンプルなQRコード作成ツールです。">
+  <title>QRコード作成ツール｜無料便利ツール</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="canonical" href="https://www.benritoolbox.com/qr-code/">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2585839901084691" crossorigin="anonymous"></script>
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "WebApplication",
+ "name": "QRコード作成ツール",
+ "url": "https://www.benritoolbox.com/qr-code/",
+ "applicationCategory": "UtilityApplication",
+ "operatingSystem": "Any",
+ "description": "URLやテキストを入力するだけでQRコードを無料作成できるシンプルなQRコード作成ツールです。"
+}
+</script>
+</head>
+<body>
+<div id="header"></div>
+<div class="layout">
+  <div class="main">
+    <h1 class="tool-title">QRコード作成ツール</h1>
+    <div class="tool-main">
+      <main class="counter">
+        <p>URLやテキストを入力すると、QRコードを作成できます。</p>
+<textarea id="qrText" placeholder="https://www.benritoolbox.com/" style="min-height:120px"></textarea>
+<div class="action-buttons"><button id="makeQr" class="btn btn-secondary">QRコード作成</button><button id="clearBtn" class="btn btn-outline">全消去</button></div>
+<div class="qr-box"><div id="qrcode"></div></div>
+      </main>
+    </div>
+    <section class="tool-section"><h2>✏️ 使い方</h2><ol><li>QRコードにしたいURLや文章を入力します。</li><li>QRコード作成ボタンを押します。</li><li>表示されたQRコードを保存・印刷して利用します。</li></ol></section>
+<section class="tool-section"><h2>✅ このツールでできること</h2><ul><li>Webサイト、資料、チラシ、名刺用のQRコード作成に使えます。</li><li>スマホで読み取りやすいQRコードを手軽に作れます。</li></ul></section>
+<section class="tool-section"><h2>💦 困ったときは</h2><ul><li>長すぎる文章は読み取りづらくなる場合があります。URLなど短い文字列がおすすめです。</li></ul></section>
+  </div>
+  <div id="sidebar-container"></div>
+</div>
+<div id="footer"></div>
+<script src="./js/layout.js"></script>
+<script src="./js/sidebar.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+let qr; function make(){const text=qrText.value.trim(); qrcode.innerHTML=''; if(!text)return; qr=new QRCode(qrcode,{text,width:220,height:220,correctLevel:QRCode.CorrectLevel.M});}
+makeQr.onclick=make; clearBtn.onclick=()=>{qrText.value=''; qrcode.innerHTML='';}; qrText.addEventListener('input',make);
+</script>
+</body>
+</html>

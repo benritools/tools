@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="入力した候補の中からランダムで1つを選べる無料の抽選・順番決めツールです。">
+  <title>ルーレットツール｜無料便利ツール</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="canonical" href="https://www.benritoolbox.com/roulette/">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2585839901084691" crossorigin="anonymous"></script>
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "WebApplication",
+ "name": "ルーレットツール",
+ "url": "https://www.benritoolbox.com/roulette/",
+ "applicationCategory": "UtilityApplication",
+ "operatingSystem": "Any",
+ "description": "入力した候補の中からランダムで1つを選べる無料の抽選・順番決めツールです。"
+}
+</script>
+</head>
+<body>
+<div id="header"></div>
+<div class="layout">
+  <div class="main">
+    <h1 class="tool-title">ルーレットツール</h1>
+    <div class="tool-main">
+      <main class="counter">
+        <p>候補を入力すると、その中からランダムに1つ選んで表示します。</p>
+<textarea id="items" placeholder="候補を1行ずつ入力してください
+例）
+Aさん
+Bさん
+Cさん"></textarea>
+<div class="action-buttons"><button id="spinBtn" class="btn btn-secondary">ルーレットを回す</button><button id="sampleBtn" class="btn btn-outline">サンプル入力</button></div>
+<div class="result-box"><span class="info-label">結果</span><div class="count"><span id="rouletteResult">-</span></div></div>
+      </main>
+    </div>
+    <section class="tool-section"><h2>✏️ 使い方</h2><ol><li>候補を1行ずつ入力します。</li><li>ルーレットを回すボタンを押します。</li><li>ランダムに選ばれた結果が表示されます。</li></ol></section>
+<section class="tool-section"><h2>✅ このツールでできること</h2><ul><li>抽選、順番決め、当番決め、今日やること選びに使えます。</li><li>学校、イベント、家庭内のちょっとした決定に便利です。</li></ul></section>
+<section class="tool-section"><h2>💦 困ったときは</h2><ul><li>候補が空欄の場合は選択できません。候補は1行に1つずつ入力してください。</li></ul></section>
+  </div>
+  <div id="sidebar-container"></div>
+</div>
+<div id="footer"></div>
+<script src="./js/layout.js"></script>
+<script src="./js/sidebar.js"></script>
+<script>
+function spin() {
+  const list = items.value
+    .split(/\r?\n/)
+    .map(s => s.trim())
+    .filter(Boolean);
+
+  if (!list.length) {
+    rouletteResult.textContent = '候補を入力してください';
+    return;
+  }
+
+  rouletteResult.textContent =
+    list[Math.floor(Math.random() * list.length)];
+}
+
+spinBtn.onclick = spin;
+
+sampleBtn.onclick = () => {
+  items.value = 'Aさん\nBさん\nCさん\nDさん';
+  spin();
+};
+</script>
+</body>
+</html>

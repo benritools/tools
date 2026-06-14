@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="cm、inch、kg、lb、坪、平方メートルなどを無料で変換できる単位変換ツールです。">
+  <title>単位変換ツール｜無料便利ツール</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="canonical" href="https://www.benritoolbox.com/unit-converter/">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2585839901084691" crossorigin="anonymous"></script>
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "WebApplication",
+ "name": "単位変換ツール",
+ "url": "https://www.benritoolbox.com/unit-converter/",
+ "applicationCategory": "UtilityApplication",
+ "operatingSystem": "Any",
+ "description": "cm、inch、kg、lb、坪、平方メートルなどを無料で変換できる単位変換ツールです。"
+}
+</script>
+</head>
+<body>
+<div id="header"></div>
+<div class="layout">
+  <div class="main">
+    <h1 class="tool-title">単位変換ツール</h1>
+    <div class="tool-main">
+      <main class="counter">
+        <p>長さ、重さ、面積の単位をかんたんに変換できます。</p>
+<div class="form-grid"><label>種類<select id="type"><option value="length">長さ</option><option value="weight">重さ</option><option value="area">面積</option></select></label><label>数値<input type="number" id="value" value="1" step="any"></label><label>変換前<select id="fromUnit"></select></label><label>変換後<select id="toUnit"></select></label></div>
+<div class="result-box"><div class="count"><span id="unitResult">-</span></div></div>
+      </main>
+    </div>
+    <section class="tool-section"><h2>✏️ 使い方</h2><ol><li>変換したい単位の種類を選びます。</li><li>数値、変換前、変換後の単位を選択します。</li><li>変換結果が自動で表示されます。</li></ol></section>
+<section class="tool-section"><h2>✅ このツールでできること</h2><ul><li>長さ、重さ、面積の単位換算に使えます。</li><li>海外表記や不動産面積の確認に使えます。</li></ul></section>
+<section class="tool-section"><h2>💦 困ったときは</h2><ul><li>小数を含む計算では、表示上わずかな丸めが発生する場合があります。</li></ul></section>
+  </div>
+  <div id="sidebar-container"></div>
+</div>
+<div id="footer"></div>
+<script src="./js/layout.js"></script>
+<script src="./js/sidebar.js"></script>
+<script>
+const units={length:{m:1,cm:.01,mm:.001,km:1000,inch:.0254,ft:.3048},weight:{kg:1,g:.001,mg:.000001,lb:.45359237,oz:.0283495},area:{m2:1,km2:1000000,cm2:.0001,tsubo:3.305785}};
+const labels={m:'m',cm:'cm',mm:'mm',km:'km',inch:'inch',ft:'ft',kg:'kg',g:'g',mg:'mg',lb:'lb',oz:'oz',m2:'㎡',km2:'㎢',cm2:'㎠',tsubo:'坪'};
+function setUnits(){const list=Object.keys(units[type.value]); fromUnit.innerHTML=toUnit.innerHTML=list.map(u=>`<option value="${u}">${labels[u]}</option>`).join(''); if(list[1])toUnit.value=list[1]; calc();}
+function calc(){const v=Number(value.value||0); const base=v*units[type.value][fromUnit.value]; const res=base/units[type.value][toUnit.value]; unitResult.textContent=`${res.toLocaleString(undefined,{maximumFractionDigits:6})} ${labels[toUnit.value]}`;}
+type.onchange=setUnits; [value,fromUnit,toUnit].forEach(e=>e.addEventListener('input',calc)); setUnits();
+</script>
+</body>
+</html>

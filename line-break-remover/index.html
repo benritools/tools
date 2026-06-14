@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="文章の改行を削除し、コピーしやすい1行テキストに変換できる無料ツールです。">
+  <title>改行削除ツール｜無料便利ツール</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="canonical" href="https://www.benritoolbox.com/line-break-remover/">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2585839901084691" crossorigin="anonymous"></script>
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "WebApplication",
+ "name": "改行削除ツール",
+ "url": "https://www.benritoolbox.com/line-break-remover/",
+ "applicationCategory": "UtilityApplication",
+ "operatingSystem": "Any",
+ "description": "文章の改行を削除し、コピーしやすい1行テキストに変換できる無料ツールです。"
+}
+</script>
+</head>
+<body>
+<div id="header"></div>
+<div class="layout">
+  <div class="main">
+    <h1 class="tool-title">改行削除ツール</h1>
+    <div class="tool-main">
+      <main class="counter">
+        <p>文章の改行や余分な空白を削除して、1行のテキストに整えます。</p>
+<textarea id="inputText" placeholder="改行を削除したい文章を入力してください"></textarea>
+<div class="options-group"><label class="checkbox-label"><input type="checkbox" id="removeSpaces"> 連続する空白も1つにする</label></div>
+<div class="action-buttons"><button id="copyBtn" class="btn btn-secondary">📋 結果をコピー</button><button id="clearBtn" class="btn btn-outline">🗑️ 全消去</button></div>
+<textarea id="outputText" placeholder="変換結果" readonly></textarea>
+      </main>
+    </div>
+    <section class="tool-section"><h2>✏️ 使い方</h2><ol><li>文章を入力欄に貼り付けます。</li><li>改行が自動で削除されます。</li><li>必要に応じて結果をコピーします。</li></ol></section>
+<section class="tool-section"><h2>✅ このツールでできること</h2><ul><li>メール、PDF、Webページからコピーした文章の改行整理に使えます。</li><li>SNS投稿やフォーム入力用に文章を整えられます。</li></ul></section>
+<section class="tool-section"><h2>💦 困ったときは</h2><ul><li>改行を残したい場合は、このツールを使う前に元の文章を別途保存してください。</li></ul></section>
+  </div>
+  <div id="sidebar-container"></div>
+</div>
+<div id="footer"></div>
+<script src="./js/layout.js"></script>
+<script src="./js/sidebar.js"></script>
+<script>
+function convert(){
+  let t = inputText.value.replace(/\r?\n/g, '');
+
+  if (removeSpaces.checked) {
+    t = t.replace(/[ 　\t]+/g, ' ');
+  }
+
+  outputText.value = t;
+}
+
+[inputText, removeSpaces].forEach(e => e.addEventListener('input', convert));
+removeSpaces.addEventListener('change', convert);
+
+copyBtn.onclick = () => {
+  if (outputText.value) navigator.clipboard.writeText(outputText.value);
+};
+
+clearBtn.onclick = () => {
+  inputText.value = '';
+  outputText.value = '';
+};
+</script>
+</body>
+</html>

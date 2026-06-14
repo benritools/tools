@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="文字数や条件を指定して安全なランダムパスワードを無料生成できるツールです。">
+  <title>パスワード生成ツール｜無料便利ツール</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="canonical" href="https://www.benritoolbox.com/password-generator/">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2585839901084691" crossorigin="anonymous"></script>
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "WebApplication",
+ "name": "パスワード生成ツール",
+ "url": "https://www.benritoolbox.com/password-generator/",
+ "applicationCategory": "UtilityApplication",
+ "operatingSystem": "Any",
+ "description": "文字数や条件を指定して安全なランダムパスワードを無料生成できるツールです。"
+}
+</script>
+</head>
+<body>
+<div id="header"></div>
+<div class="layout">
+  <div class="main">
+    <h1 class="tool-title">パスワード生成ツール</h1>
+    <div class="tool-main">
+      <main class="counter">
+        <p>文字数や条件を指定して、ランダムなパスワードを生成できます。</p>
+<div class="form-grid"><label>文字数<input type="number" id="length" value="12" min="4" max="64"></label></div>
+<div class="options-group"><label class="checkbox-label"><input type="checkbox" id="upper" checked> 英大文字</label><label class="checkbox-label"><input type="checkbox" id="lower" checked> 英小文字</label><label class="checkbox-label"><input type="checkbox" id="number" checked> 数字</label><label class="checkbox-label"><input type="checkbox" id="symbol"> 記号</label></div>
+<div class="action-buttons"><button id="generateBtn" class="btn btn-secondary">生成する</button><button id="copyBtn" class="btn btn-outline">コピー</button></div>
+<input id="passwordResult" class="text-input-large" readonly placeholder="生成結果">
+      </main>
+    </div>
+    <section class="tool-section"><h2>✏️ 使い方</h2><ol><li>文字数を入力します。</li><li>使いたい文字種を選択します。</li><li>生成ボタンを押して、必要に応じてコピーします。</li></ol></section>
+<section class="tool-section"><h2>✅ このツールでできること</h2><ul><li>会員登録や管理画面用のパスワード作成に使えます。</li><li>英数字や記号を含むパスワードを手軽に作れます。</li></ul></section>
+<section class="tool-section"><h2>💦 困ったときは</h2><ul><li>生成したパスワードは安全な場所に保管してください。同じパスワードの使い回しは避けてください。</li></ul></section>
+  </div>
+  <div id="sidebar-container"></div>
+</div>
+<div id="footer"></div>
+<script src="./js/layout.js"></script>
+<script src="./js/sidebar.js"></script>
+<script>
+function generate(){let chars=''; if(upper.checked)chars+='ABCDEFGHIJKLMNOPQRSTUVWXYZ'; if(lower.checked)chars+='abcdefghijklmnopqrstuvwxyz'; if(number.checked)chars+='0123456789'; if(symbol.checked)chars+='!@#$%&*?_-+='; if(!chars){passwordResult.value='条件を1つ以上選択してください';return;} const len=Math.max(4,Math.min(64,Number(length.value||12))); const arr=new Uint32Array(len); crypto.getRandomValues(arr); passwordResult.value=Array.from(arr,n=>chars[n%chars.length]).join('');}
+generateBtn.onclick=generate; copyBtn.onclick=()=>{if(passwordResult.value)navigator.clipboard.writeText(passwordResult.value);}; generate();
+</script>
+</body>
+</html>

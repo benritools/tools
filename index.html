@@ -26,6 +26,29 @@
   </head>
 
 <body>
+<nav class="top-nav">
+  <div class="top-nav-inner">
+    <div class="nav-links">
+      <a href="/">ツール集</a>
+      <a href="/blog/">技術ブログ</a>
+      <a href="/common/about.html">当サイトについて</a>
+      <a href="/common/contact.html">お問い合わせ</a>
+    </div>
+
+    <button id="menuBtn" class="menu-btn" type="button" aria-label="メニュー">
+      ☰
+    </button>
+  </div>
+
+  <div id="mobileMenu" class="mobile-menu">
+    <a href="/">ツール集</a>
+    <a href="/blog/">技術ブログ</a>
+    <a href="/common/about.html">当サイトについて</a>
+    <a href="/common/contact.html">お問い合わせ</a>
+    <a href="/common/terms.html">利用規約</a>
+    <a href="/common/privacy.html">プライバシーポリシー</a>
+  </div>
+</nav>
 
 <header>
   <div class="brand">
@@ -110,6 +133,13 @@
     renderTools(allTools);
     renderPopularTools(allTools);
   }
+
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  menuBtn?.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+  });
 
   function renderTools(list){
     const el = document.getElementById('toolsList');
